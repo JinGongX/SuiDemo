@@ -143,8 +143,8 @@ SuiDemo/
 ```
 ## 📸 Screenshots
 
-![输入图片说明](effect/an.jpg)
-![输入图片说明](effect/white.jpg)
+![输入图片说明](effect/Black_en.jpg)
+![输入图片说明](effect/white_en.jpg)
 
 ## 📜 License
 
