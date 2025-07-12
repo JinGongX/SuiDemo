@@ -1,6 +1,12 @@
 # SuiDemo
 
-🎯 一个使用 [Wails v3](https://wails.io) 构建的现代桌面应用模板，开箱即用地集成了以下功能：
+<p align="center">
+  <a href="#简体中文">简体中文</a> ｜ <a href="#english">English</a>
+</p>
+---
+## 简体中文
+
+🎯 一个使用 [Wails v3](https://v3alpha.wails.io) 构建的现代桌面应用模板，开箱即用地集成了以下功能：
 
 - 🌍 多语言支持
 - 🌗 黑暗 / 明亮主题切换
@@ -76,3 +82,5 @@ Apache-2.0 License
 ## 💬 联系方式
 
 如果你对这个项目感兴趣或有任何建议，欢迎提 issue 或发邮件联系我 ggfugg8@icloud.com
+
+## English
