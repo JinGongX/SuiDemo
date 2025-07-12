@@ -35,3 +35,15 @@
 # 安装 Wails CLI
 go install github.com/wailsapp/wails/v3/cmd/wails@latest
 
+# 克隆并运行项目
+git clone https://github.com/JinGongX/SuiDemo.git
+cd SuiDemo
+
+#启动开发模式
+wails3 dev
+
+#构建生产包
+wails3 package
+#构建后的应用在 bin 目录下可找到。
+
+
