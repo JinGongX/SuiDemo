@@ -48,7 +48,7 @@ wails3 package
 ```
 
 ## 🧱 项目结构
-
+```
 SuiDemo/
 ├── frontend/             # Vue3 前端代码
 │   ├── src/
@@ -59,7 +59,7 @@ SuiDemo/
 ├── main.go               # 应用入口
 ├── Taskfile.yml            # Wails 配置文件
 └── go.mod
-
+```
 ## 📜 许可证
 
 Apache-2.0 License
