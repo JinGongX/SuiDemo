@@ -37,7 +37,7 @@
     "themesetting": {
       "select": {
         "opt_dark": "Dark Mode",
-        "opt_light": "Bright color mode"
+        "opt_light": "Bright Mode"
       }
     }
   }
