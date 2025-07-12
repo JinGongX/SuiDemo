@@ -3,7 +3,7 @@
 <p align="center">
   <a href="#简体中文">简体中文</a> ｜ <a href="#english">English</a>
 </p>
----
+
 ## 简体中文
 
 🎯 一个使用 [Wails v3](https://v3alpha.wails.io) 构建的现代桌面应用模板，开箱即用地集成了以下功能：
@@ -83,4 +83,78 @@ Apache-2.0 License
 
 如果你对这个项目感兴趣或有任何建议，欢迎提 issue 或发邮件联系我 ggfugg8@icloud.com
 
+
+
 ## English
+
+## 🧩Project Overview
+
+> 🌍 A Wails v3-based desktop application template with i18n, dark mode, and SQLite integration.
+- ✅ Internationalization (i18n) using `vue-i18n`
+- 🌗 Automatic light/dark theme support with manual override
+- 🗃️ SQLite database integration with CRUD operations
+- ⚙️ Settings panel and hotkey configuration demo
+- 💡 Built with Wails v3, Vue 3, and TypeScript
+
+---
+
+## 📦Tech Stack
+
+| Module        | Technology          | Description                                |
+|---------------|---------------------|--------------------------------------------|
+| Desktop Shell | Wails v3            | Build cross-platform apps using Go + Web   |
+| Frontend      | Vue 3 + TypeScript  | Modern reactive frontend framework         |
+| Styling       | Tailwind CSS        | Utility-first CSS framework                |
+| i18n          | vue-i18n            | Seamless internationalization              |
+| Database      | SQLite + Go         | Local storage powered by SQLite and Go     |
+
+## 🚀Getting Started
+
+### 1.Install Dependencies
+
+```bash
+# install Wails CLI
+go install github.com/wailsapp/wails/v3/cmd/wails@latest
+
+# clone project
+git clone https://github.com/JinGongX/SuiDemo.git
+cd SuiDemo
+
+# Run in Dev Mode
+wails3 dev
+
+# Build for Production
+wails3 package
+```
+
+## 🧱 Project Structure
+
+```
+SuiDemo/
+├── frontend/             # Vue3 code
+│   ├── src/
+│   │   ├── locales/          
+│   │   ├── components/    
+│   │   └── App.vue
+├── services/             # Go api code
+├── main.go                
+├── Taskfile.yml            # Wails config
+└── go.mod
+```
+## 📸 Screenshots
+
+![输入图片说明](effect/an.jpg)
+![输入图片说明](effect/white.jpg)
+
+## 📜 License
+
+Apache-2.0 License
+
+## 🙌 Acknowledgements
+
+[Wails v3](https://v3alpha.wails.io/)
+
+## 💬 Contact
+
+If you find this useful or have suggestions, feel free to open an issue or reach out.
+Email: ggfugg8@icloud.com
