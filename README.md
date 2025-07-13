@@ -1,5 +1,5 @@
-# SuiDemo
-
+<p align="center"><h1>SuiDemo</h1></p>
+---
 <p align="center">
 <a href="https://github.com/JinGongX/SuiDemo?tab=Apache-2.0-1-ov-file">
 <img alt="GitHub" src="https://img.shields.io/badge/license-Apache_2.0-blue"/>
