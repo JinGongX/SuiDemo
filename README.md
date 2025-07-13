@@ -4,6 +4,9 @@
 <a href="https://github.com/JinGongX/SuiDemo?tab=Apache-2.0-1-ov-file">
 <img alt="GitHub" src="https://img.shields.io/badge/license-Apache_2.0-blue"/>
 </a>
+<a href="https://github.com/JinGongX/SuiDemo/releases">
+<img alt="GitHub tag" src="https://img.shields.io/badge/version-v0.1.0--alpha-orange">
+</a>
 </p>
 <p align="center">
   <a href="#简体中文">简体中文</a> ｜ <a href="#english">English</a>
