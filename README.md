@@ -8,7 +8,7 @@
 <img alt="GitHub tag" src="https://img.shields.io/badge/version-v0.1.0--alpha-orange">
 </a>
  <a href="https://github.com/wailsapp/wails/tags" rel="nofollow">
-    <img alt="GitHub tag (latest SemVer pre-release)" src="https://img.shields.io/github/v/tag/wailsapp/wails?include_prereleases&label=version"/>
+    <img alt="GitHub tag (latest SemVer pre-release)" src="https://img.shields.io/github/v/tag/wailsapp/wails?include_prereleases&label=wails3&logo=wails"/>
   </a>
 </p>
 <p align="center">
