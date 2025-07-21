@@ -7,6 +7,9 @@
 <a href="https://github.com/JinGongX/SuiDemo/releases">
 <img alt="GitHub tag" src="https://img.shields.io/badge/version-v0.1.0--alpha-orange">
 </a>
+ <a href="https://github.com/wailsapp/wails/tags" rel="nofollow">
+    <img alt="GitHub tag (latest SemVer pre-release)" src="https://img.shields.io/github/v/tag/wailsapp/wails?include_prereleases&label=version"/>
+  </a>
 </p>
 <p align="center">
   <a href="#简体中文">简体中文</a> ｜ <a href="#english">English</a>
