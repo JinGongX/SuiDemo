@@ -52,8 +52,8 @@
 # 安装 Wails CLI
 go install github.com/wailsapp/wails/v3/cmd/wails@latest
 
-# 克隆并运行项目
-git clone https://github.com/JinGongX/SuiDemo.git
+# 运用模版创建项目并运行项目
+wails3 init -n SuiDemo -t https://github.com/JinGongX/SuiDemo  
 cd SuiDemo
 
 #启动开发模式
@@ -127,8 +127,8 @@ Apache-2.0 License
 # install Wails CLI
 go install github.com/wailsapp/wails/v3/cmd/wails@latest
 
-# clone project
-git clone https://github.com/JinGongX/SuiDemo.git
+# create project
+wails3 init -n SuiDemo -t https://github.com/JinGongX/SuiDemo  
 cd SuiDemo
 
 # Run in Dev Mode
