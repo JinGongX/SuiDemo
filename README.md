@@ -53,8 +53,8 @@
 go install github.com/wailsapp/wails/v3/cmd/wails@latest
 
 # 运用模版创建项目并运行项目
-wails3 init -n SuiDemo -t https://github.com/JinGongX/SuiDemo  
-cd SuiDemo
+wails3 init -n myproject -t https://github.com/JinGongX/SuiDemo  
+cd myproject
 
 #启动开发模式
 wails3 dev
@@ -128,8 +128,8 @@ Apache-2.0 License
 go install github.com/wailsapp/wails/v3/cmd/wails@latest
 
 # create project
-wails3 init -n SuiDemo -t https://github.com/JinGongX/SuiDemo  
-cd SuiDemo
+wails3 init -n myproject -t https://github.com/JinGongX/SuiDemo  
+cd myproject
 
 # Run in Dev Mode
 wails3 dev
