@@ -10,6 +10,7 @@
  <a href="https://github.com/wailsapp/wails/tags" rel="nofollow">
     <img alt="GitHub tag (latest SemVer pre-release)" src="https://img.shields.io/github/v/tag/wailsapp/wails?include_prereleases&label=wails3&logo=wails"/>
   </a>
+  <a href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2FJinGongX%2FSuiDemo"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2FJinGongX%2FSuiDemo&countColor=%23263759" /></a>
 </p>
 <p align="center">
   <a href="#简体中文">简体中文</a> ｜ <a href="#english">English</a>
