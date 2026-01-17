@@ -23,7 +23,7 @@
 - 🌗 黑暗 / 明亮主题切换
 - 🗂️ SQLite 数据库读写示例（增删改查）
 - 🧱 可扩展的前后端架构，适合二次开发
-
+- 🚀 ```wails3 init -n myproject -t https://github.com/JinGongX/SuiDemo``` 直接创建项目
 ---
 
 ## 💻 技术栈
@@ -106,7 +106,7 @@ Apache-2.0 License
 - 🗃️ SQLite database integration with CRUD operations
 - ⚙️ Settings panel and hotkey configuration demo
 - 💡 Built with Wails v3, Vue 3, and TypeScript
-
+- 🚀 ```wails3 init -n myproject -t https://github.com/JinGongX/SuiDemo``` Create a project
 ---
 
 ## 📦Tech Stack
