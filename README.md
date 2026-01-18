@@ -51,7 +51,7 @@
 
 ```bash
 # 安装 Wails CLI
-go install github.com/wailsapp/wails/v3/cmd/wails@latest
+go install github.com/wailsapp/wails/v3/cmd/wails3@latest
 
 # 运用模版创建项目并运行项目
 wails3 init -n myproject -t https://github.com/JinGongX/SuiDemo  
@@ -126,7 +126,7 @@ Apache-2.0 License
 
 ```bash
 # install Wails CLI
-go install github.com/wailsapp/wails/v3/cmd/wails@latest
+go install github.com/wailsapp/wails/v3/cmd/wails3@latest
 
 # create project
 wails3 init -n myproject -t https://github.com/JinGongX/SuiDemo  
