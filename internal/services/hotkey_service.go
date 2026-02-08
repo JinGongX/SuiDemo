@@ -21,11 +21,18 @@ func NewHotkeyService(store *SuiStore) *HotkeyService {
 
 // 快捷键修改
 func (cs *HotkeyService) UpHotkey(id int, key int, modifier int) error {
+	var oldKey, oldModifier uint32
+	// 先查询旧的 keycode 和 modifier
+	cs.store.DB.QueryRow("SELECT keycode, modifiers FROM hotkeys WHERE id = ?", id).Scan(&oldKey, &oldModifier)
+
 	_, err := cs.store.DB.Exec(`
         UPDATE hotkeys 
         SET keycode = ?, modifiers = ? 
         WHERE id = ?
     `, key, modifier, id)
+	LoadAndRegisterHotkeysFrom(cs.store, id)
+	// 注销旧的热键
+	hotkey.UnregisterHotKey(oldKey, oldModifier)
 	return err
 }
 
