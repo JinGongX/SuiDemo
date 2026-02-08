@@ -15,52 +15,60 @@ html, body, #app {
   background: transparent !important;
 }
 /* 仅当 html 有 dark 类时生效 */
-html.dark {
-  /* Select 下拉框字体颜色 */
-  .ant-select-selector {
-    color: #ffffff !important;
-    /* background-color: #1f1f1f !important; */
-     background-color: rgba(31, 41, 55, 1) !important;
-    /* background-color: rgb(30 41 59 / var(--tw-bg-opacity, 1)); */
-    border-color: #434343 !important;
-  }
 
-  .ant-select-dropdown {
-    /* background-color: #141414 !important; */
-    background-color: rgba(31, 41, 55, 1) !important;
-  }
-
-  .ant-select-item {
-    color: #ffffff !important;
-  }
-
-  .ant-select-item-option-active {
-    /* background-color: #2a2a2a !important; */
-    background-color: rgb(46, 56, 71) !important;
-    /* background-color: rgb(30 41 59 / var(--tw-bg-opacity, 1)); */
-  }
-
-  .ant-select-item-option-selected {
-    /* background-color: #3a3a3a !important; */
-     background-color: #283150 !important;
-    /* background-color: rgb(30 41 59 / var(--tw-bg-opacity, 1)) !important; */
-    color: #69c0ff !important;
-  }
-
-.ant-input {
-  background-color: #374151 !important; 
-  color: white !important; 
+/* Select 输入框 */
+html.dark .ant-select-selector {
+  color: #ffffff !important;
+  /* background-color: #1f1f1f !important; */
+  background-color: rgba(31, 41, 55, 1) !important;
+  /* background-color: rgb(30 41 59 / var(--tw-bg-opacity, 1)); */
+  border-color: #434343 !important;
 }
-.ant-input::-moz-placeholder {
+
+/* Select 下拉面板 */
+html.dark .ant-select-dropdown {
+  /* background-color: #141414 !important; */
+  background-color: rgba(31, 41, 55, 1) !important;
+}
+
+/* 下拉项文字 */
+html.dark .ant-select-item {
+  color: #ffffff !important;
+}
+
+/* Hover / Active 状态 */
+html.dark .ant-select-item-option-active {
+  /* background-color: #2a2a2a !important; */
+  background-color: rgb(46, 56, 71) !important;
+  /* background-color: rgb(30 41 59 / var(--tw-bg-opacity, 1)); */
+}
+
+/* 选中项 */
+html.dark .ant-select-item-option-selected {
+  /* background-color: #3a3a3a !important; */
+  background-color: #283150 !important;
+  /* background-color: rgb(30 41 59 / var(--tw-bg-opacity, 1)) !important; */
+  color: #69c0ff !important;
+}
+
+/* Input */
+html.dark .ant-input {
+  background-color: #374151 !important;
+  color: white !important;
+}
+
+html.dark .ant-input::-moz-placeholder {
   color: #cccccc !important;
 }
-.ant-input::placeholder {
+
+html.dark .ant-input::placeholder {
   color: #cccccc !important;
 }
-.ant-input-affix-wrapper {
-  background-color: #374151 !important; 
+
+/* Input 带前后缀 */
+html.dark .ant-input-affix-wrapper {
+  background-color: #374151 !important;
   border-color: #626161 !important;
-}
 }
   #app {
        margin: 0;
@@ -69,8 +77,8 @@ html.dark {
        height: 100%;
       }
     </style>
-    <script type="module" crossorigin src="/assets/index-DUZe9pDz.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CSBXVi3H.css">
+    <script type="module" crossorigin src="/assets/index-xhxJ1r3h.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CcOPSopx.css">
   </head>
   <body>
     <div id="app"></div>

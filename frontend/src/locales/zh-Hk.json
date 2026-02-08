@@ -1,0 +1,48 @@
+{
+  "menus": {
+    "about": "關於",
+    "backup": "數據備份",
+    "general": "通用設置",
+    "history": "歷史記錄",
+    "remote": "遠程共享",
+    "shortcut": "快速鍵",
+    "second": "第二窗口"
+  },
+  "app": {
+    "login": "登入",
+    "title": "我的應用"
+  },
+  "components": {
+    "general": {
+      "buttons": {
+        "authorized": "已授權",
+        "go_authorized": "去授權"
+      },
+      "label": {
+        "assistant_access": "輔助功能訪問權限",
+        "automatic_up": "自動檢查更新",
+        "disk_access": "完全磁盤訪問權限",
+        "language": "界面語言",
+        "next_up": "下次啟動自動檢查更新",
+        "startup": "登錄時啟動",
+        "theme": "主題模式"
+      },
+      "subLabel": {
+        "sb_assistant_access": "需要無障礙訪問權限來操作剪切板內容",
+        "sb_disk_access": "需要完全磁盤訪問權限來實現文件預覽"
+      },
+      "title": {
+        "application": "應用設置",
+        "exterior": "外觀設置",
+        "power": "權限設置",
+        "update": "應用更新"
+      }
+    },
+    "themesetting": {
+      "select": {
+        "opt_dark": "暗色模式",
+        "opt_light": "亮色模式"
+      }
+    }
+  }
+}

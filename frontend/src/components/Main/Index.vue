@@ -21,7 +21,7 @@
 import { ref ,computed,watch ,nextTick} from 'vue'
 import { useI18n } from 'vue-i18n'
 import { SettingOutlined,BulbOutlined ,FormOutlined,SlackOutlined ,SendOutlined } from '@ant-design/icons-vue';
-import { OpenSecondWindow } from  '../../../bindings/changeme/appservice'
+import { OpenSecondWindow } from  '../../../bindings/changeme/internal/services/appservice'
 
 const { t } = useI18n()
 //菜单结构

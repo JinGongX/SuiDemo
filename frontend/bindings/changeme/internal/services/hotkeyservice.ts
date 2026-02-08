@@ -7,33 +7,21 @@ import { Call as $Call, CancellablePromise as $CancellablePromise, Create as $Cr
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
-import * as $models from "./models.js";
+import * as models$0 from "../models/models.js";
 
-export function Close(): $CancellablePromise<void> {
-    return $Call.ByID(1355592200);
-}
-
-export function GetHotkeys(): $CancellablePromise<$models.Hotkey[]> {
-    return $Call.ByID(23462219).then(($result: any) => {
+export function GetHotkeys(): $CancellablePromise<models$0.Hotkey[]> {
+    return $Call.ByID(2356466554).then(($result: any) => {
         return $$createType1($result);
     });
-}
-
-export function Start(): $CancellablePromise<void> {
-    return $Call.ByID(835708248);
-}
-
-export function Stop(): $CancellablePromise<void> {
-    return $Call.ByID(1501773308);
 }
 
 /**
  * 快捷键修改
  */
 export function UpHotkey(id: number, key: number, modifier: number): $CancellablePromise<void> {
-    return $Call.ByID(3795952175, id, key, modifier);
+    return $Call.ByID(3574851818, id, key, modifier);
 }
 
 // Private type creation functions
-const $$createType0 = $models.Hotkey.createFrom;
+const $$createType0 = models$0.Hotkey.createFrom;
 const $$createType1 = $Create.Array($$createType0);

@@ -6,7 +6,7 @@ var __commonJS = (cb, mod) => function __require() {
 };
 var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
 var require_index_001 = __commonJS({
-  "assets/index-DUZe9pDz.js"(exports, module) {
+  "assets/index-xhxJ1r3h.js"(exports, module) {
     (function polyfill() {
       const relList = document.createElement("link").relList;
       if (relList && relList.supports && relList.supports("modulepreload")) {
@@ -100128,7 +100128,7 @@ summary tabindex target title type usemap value width wmode wrap`;
       }
     });
     const index = withInstall(AFlex);
-    const components$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+    const components$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
       __proto__: null,
       Affix: Affix$1,
       Alert: index$r,
@@ -100342,8 +100342,8 @@ summary tabindex target title type usemap value width wmode wrap`;
       darkAlgorithm: derivative
     };
     const install = function(app2) {
-      Object.keys(components$2).forEach((key2) => {
-        const component = components$2[key2];
+      Object.keys(components$3).forEach((key2) => {
+        const component = components$3[key2];
         if (component.install) {
           app2.use(component);
         }
@@ -104765,17 +104765,17 @@ summary tabindex target title type usemap value width wmode wrap`;
       target.__INTLIFY__ = true;
       setDevToolsHook(target.__INTLIFY_DEVTOOLS_GLOBAL_HOOK__);
     }
-    const app$1 = {
+    const app$2 = {
       title: "My App",
       login: "Login"
     };
-    const menus$1 = {
+    const menus$2 = {
       about: "About",
       general: "General",
       shortcut: "Shortcut key",
       second: "Second win"
     };
-    const components$1 = {
+    const components$2 = {
       general: {
         title: {
           application: "Apply settings",
@@ -104809,21 +104809,21 @@ summary tabindex target title type usemap value width wmode wrap`;
       }
     };
     const en = {
-      app: app$1,
-      menus: menus$1,
-      components: components$1
+      app: app$2,
+      menus: menus$2,
+      components: components$2
     };
-    const app = {
+    const app$1 = {
       title: "我的应用",
       login: "登录"
     };
-    const menus = {
+    const menus$1 = {
       general: "通用设置",
       shortcut: "快捷键",
       about: "关于",
       second: "第二窗口"
     };
-    const components = {
+    const components$1 = {
       home: {},
       general: {
         title: {
@@ -104858,14 +104858,66 @@ summary tabindex target title type usemap value width wmode wrap`;
       }
     };
     const zh = {
-      app,
+      app: app$1,
+      menus: menus$1,
+      components: components$1
+    };
+    const menus = {
+      about: "關於",
+      backup: "數據備份",
+      general: "通用設置",
+      history: "歷史記錄",
+      remote: "遠程共享",
+      shortcut: "快速鍵",
+      second: "第二窗口"
+    };
+    const app = {
+      login: "登入",
+      title: "我的應用"
+    };
+    const components = {
+      general: {
+        buttons: {
+          authorized: "已授權",
+          go_authorized: "去授權"
+        },
+        label: {
+          assistant_access: "輔助功能訪問權限",
+          automatic_up: "自動檢查更新",
+          disk_access: "完全磁盤訪問權限",
+          language: "界面語言",
+          next_up: "下次啟動自動檢查更新",
+          startup: "登錄時啟動",
+          theme: "主題模式"
+        },
+        subLabel: {
+          sb_assistant_access: "需要無障礙訪問權限來操作剪切板內容",
+          sb_disk_access: "需要完全磁盤訪問權限來實現文件預覽"
+        },
+        title: {
+          application: "應用設置",
+          exterior: "外觀設置",
+          power: "權限設置",
+          update: "應用更新"
+        }
+      },
+      themesetting: {
+        select: {
+          opt_dark: "暗色模式",
+          opt_light: "亮色模式"
+        }
+      }
+    };
+    const zhhk = {
       menus,
+      app,
       components
     };
     async function loadLocaleMessages(locale2) {
       const messagesMap = {
         en,
-        zh
+        zh,
+        zhhk
       };
       return messagesMap[locale2];
     }
@@ -107981,16 +108033,16 @@ summary tabindex target title type usemap value width wmode wrap`;
     window._wails.invoke = invoke;
     invoke("wails:runtime:ready");
     function OpenSecondWindow() {
-      return ByID(1306260514);
+      return ByID(1968391568);
     }
-    const _hoisted_1$6 = { class: "flex items-center justify-between px-4 py-3" };
-    const _hoisted_2$2 = { style: { "text-align": "left" } };
-    const _hoisted_3$2 = { class: "text-sm text-gray-900 font-medium dark:text-white" };
-    const _hoisted_4$2 = {
+    const _hoisted_1$7 = { class: "flex items-center justify-between px-4 py-3" };
+    const _hoisted_2$3 = { style: { "text-align": "left" } };
+    const _hoisted_3$3 = { class: "text-sm text-gray-900 font-medium dark:text-white" };
+    const _hoisted_4$3 = {
       key: 0,
       class: "text-xs text-gray-500 mt-1"
     };
-    const _hoisted_5$2 = { class: "inline-flex items-center cursor-pointer" };
+    const _hoisted_5$3 = { class: "inline-flex items-center cursor-pointer" };
     const _sfc_main$8 = /* @__PURE__ */ defineComponent({
       __name: "ListRow",
       props: {
@@ -107999,12 +108051,12 @@ summary tabindex target title type usemap value width wmode wrap`;
       },
       setup(__props) {
         return (_ctx, _cache) => {
-          return openBlock(), createElementBlock("div", _hoisted_1$6, [
-            createBaseVNode("div", _hoisted_2$2, [
-              createBaseVNode("div", _hoisted_3$2, toDisplayString$1(_ctx.label), 1),
-              _ctx.subLabel ? (openBlock(), createElementBlock("div", _hoisted_4$2, toDisplayString$1(_ctx.subLabel), 1)) : createCommentVNode("", true)
+          return openBlock(), createElementBlock("div", _hoisted_1$7, [
+            createBaseVNode("div", _hoisted_2$3, [
+              createBaseVNode("div", _hoisted_3$3, toDisplayString$1(_ctx.label), 1),
+              _ctx.subLabel ? (openBlock(), createElementBlock("div", _hoisted_4$3, toDisplayString$1(_ctx.subLabel), 1)) : createCommentVNode("", true)
             ]),
-            createBaseVNode("label", _hoisted_5$2, [
+            createBaseVNode("label", _hoisted_5$3, [
               renderSlot(_ctx.$slots, "default")
             ])
           ]);
@@ -108045,7 +108097,7 @@ summary tabindex target title type usemap value width wmode wrap`;
                   _: 1,
                   __: [2]
                 }),
-                createVNode(_component_a_select_option, { value: "zh-Hk" }, {
+                createVNode(_component_a_select_option, { value: "zhhk" }, {
                   default: withCtx(() => _cache[3] || (_cache[3] = [
                     createTextVNode("繁體中文")
                   ])),
@@ -108059,7 +108111,7 @@ summary tabindex target title type usemap value width wmode wrap`;
         };
       }
     });
-    const _hoisted_1$5 = { class: "space-y-2" };
+    const _hoisted_1$6 = { class: "space-y-2" };
     const _sfc_main$6 = /* @__PURE__ */ defineComponent({
       __name: "ThemeSetting",
       setup(__props) {
@@ -108075,7 +108127,7 @@ summary tabindex target title type usemap value width wmode wrap`;
         return (_ctx, _cache) => {
           const _component_a_select_option = resolveComponent("a-select-option");
           const _component_a_select = resolveComponent("a-select");
-          return openBlock(), createElementBlock("div", _hoisted_1$5, [
+          return openBlock(), createElementBlock("div", _hoisted_1$6, [
             createVNode(_component_a_select, {
               value: themevalue.value,
               "onUpdate:value": _cache[0] || (_cache[0] = ($event) => themevalue.value = $event),
@@ -108102,12 +108154,12 @@ summary tabindex target title type usemap value width wmode wrap`;
         };
       }
     });
-    const _hoisted_1$4 = { class: "text-lg font-bold text-gray-800 dark:text-white" };
-    const _hoisted_2$1 = { class: "bg-white rounded-lg shadow divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700" };
-    const _hoisted_3$1 = { class: "text-lg font-bold text-gray-800 dark:text-white" };
-    const _hoisted_4$1 = { class: "bg-white rounded-lg shadow divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700" };
-    const _hoisted_5$1 = { class: "text-lg font-bold text-gray-800 dark:text-white" };
-    const _hoisted_6 = { class: "mt-4 bg-white rounded-lg shadow divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700" };
+    const _hoisted_1$5 = { class: "text-lg font-bold text-gray-800 dark:text-white" };
+    const _hoisted_2$2 = { class: "bg-white rounded-lg shadow divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700" };
+    const _hoisted_3$2 = { class: "text-lg font-bold text-gray-800 dark:text-white" };
+    const _hoisted_4$2 = { class: "bg-white rounded-lg shadow divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700" };
+    const _hoisted_5$2 = { class: "text-lg font-bold text-gray-800 dark:text-white" };
+    const _hoisted_6$1 = { class: "mt-4 bg-white rounded-lg shadow divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700" };
     const _sfc_main$5 = /* @__PURE__ */ defineComponent({
       __name: "Index",
       setup(__props) {
@@ -108115,8 +108167,8 @@ summary tabindex target title type usemap value width wmode wrap`;
         return (_ctx, _cache) => {
           return openBlock(), createElementBlock("div", null, [
             createBaseVNode("section", null, [
-              createBaseVNode("h2", _hoisted_1$4, toDisplayString$1(_ctx.$t("components.general.title.application")), 1),
-              createBaseVNode("div", _hoisted_2$1, [
+              createBaseVNode("h2", _hoisted_1$5, toDisplayString$1(_ctx.$t("components.general.title.application")), 1),
+              createBaseVNode("div", _hoisted_2$2, [
                 createVNode(_sfc_main$8, {
                   label: _ctx.$t("components.general.label.startup"),
                   subLabel: ""
@@ -108135,8 +108187,8 @@ summary tabindex target title type usemap value width wmode wrap`;
                   __: [3]
                 }, 8, ["label"])
               ]),
-              createBaseVNode("h2", _hoisted_3$1, toDisplayString$1(_ctx.$t("components.general.title.exterior")), 1),
-              createBaseVNode("div", _hoisted_4$1, [
+              createBaseVNode("h2", _hoisted_3$2, toDisplayString$1(_ctx.$t("components.general.title.exterior")), 1),
+              createBaseVNode("div", _hoisted_4$2, [
                 createVNode(_sfc_main$8, {
                   label: _ctx.$t("components.general.label.language"),
                   subLabel: ""
@@ -108156,8 +108208,8 @@ summary tabindex target title type usemap value width wmode wrap`;
                   _: 1
                 }, 8, ["label"])
               ]),
-              createBaseVNode("h2", _hoisted_5$1, toDisplayString$1(_ctx.$t("components.general.title.update")), 1),
-              createBaseVNode("div", _hoisted_6, [
+              createBaseVNode("h2", _hoisted_5$2, toDisplayString$1(_ctx.$t("components.general.title.update")), 1),
+              createBaseVNode("div", _hoisted_6$1, [
                 createVNode(_sfc_main$8, {
                   label: _ctx.$t("components.general.label.automatic_up"),
                   subLabel: ""
@@ -108199,7 +108251,7 @@ summary tabindex target title type usemap value width wmode wrap`;
       }
     });
     const General = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-a66b4a52"]]);
-    const _hoisted_1$3 = ["innerHTML"];
+    const _hoisted_1$4 = ["innerHTML"];
     const _sfc_main$4 = /* @__PURE__ */ defineComponent({
       __name: "ShortcutInput",
       props: {
@@ -108327,7 +108379,7 @@ summary tabindex target title type usemap value width wmode wrap`;
             onBlur: _cache[0] || (_cache[0] = ($event) => isRecording.value = false)
           }, {
             suffix: withCtx(() => [
-              createBaseVNode("span", { innerHTML: display.value }, null, 8, _hoisted_1$3)
+              createBaseVNode("span", { innerHTML: display.value }, null, 8, _hoisted_1$4)
             ]),
             _: 1
           });
@@ -108469,16 +108521,16 @@ summary tabindex target title type usemap value width wmode wrap`;
       }
     }
     function GetHotkeys() {
-      return ByID(23462219).then(($result) => {
+      return ByID(2356466554).then(($result) => {
         return $$createType1($result);
       });
     }
     function UpHotkey(id, key2, modifier) {
-      return ByID(3795952175, id, key2, modifier);
+      return ByID(3574851818, id, key2, modifier);
     }
     const $$createType0 = Hotkey.createFrom;
     const $$createType1 = Array$1($$createType0);
-    const _hoisted_1$2 = { class: "bg-white rounded-lg shadow divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700" };
+    const _hoisted_1$3 = { class: "bg-white rounded-lg shadow divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700" };
     const _sfc_main$3 = /* @__PURE__ */ defineComponent({
       __name: "Index",
       setup(__props) {
@@ -108542,7 +108594,7 @@ summary tabindex target title type usemap value width wmode wrap`;
           return openBlock(), createElementBlock(Fragment, null, [
             _cache[2] || (_cache[2] = createBaseVNode("h2", { class: "text-lg font-bold text-gray-800 dark:text-white" }, "快捷键", -1)),
             createBaseVNode("div", null, [
-              createBaseVNode("div", _hoisted_1$2, [
+              createBaseVNode("div", _hoisted_1$3, [
                 createVNode(_sfc_main$8, {
                   label: "打开主窗口",
                   subLabel: "按下组合键，必须包含至少一个修饰键和一个主键"
@@ -108573,22 +108625,105 @@ summary tabindex target title type usemap value width wmode wrap`;
         };
       }
     });
-    const Shortcut = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-7f9bfce2"]]);
+    const Shortcut = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-524ad25f"]]);
+    const _hoisted_1$2 = { class: "w-full h-full flex items-center justify-center" };
+    const _hoisted_2$1 = { class: "w-[420px] rounded-2xl bg-neutral-50 dark:bg-gray-800 px-8 py-10 text-center shadow-sm border border-neutral-100 dark:border-gray-700" };
+    const _hoisted_3$1 = {
+      key: 0,
+      class: "flex justify-center mb-4"
+    };
+    const _hoisted_4$1 = {
+      key: 0,
+      class: "text-2xl font-semibold text-neutral-800 mb-1 dark:text-white",
+      style: { "transition-delay": "80ms" }
+    };
+    const _hoisted_5$1 = {
+      key: 0,
+      class: "text-sm text-neutral-500 mb-6 dark:text-neutral-300",
+      style: { "transition-delay": "120ms" }
+    };
+    const _hoisted_6 = {
+      key: 0,
+      class: "text-sm text-neutral-700 leading-relaxed space-y-3 mb-6 dark:text-white",
+      style: { "transition-delay": "180ms" }
+    };
+    const _hoisted_7 = {
+      key: 0,
+      class: "flex justify-center mb-6",
+      style: { "transition-delay": "240ms" }
+    };
+    const _hoisted_8 = {
+      key: 0,
+      class: "text-xs text-neutral-400 space-y-1 dark:text-white",
+      style: { "transition-delay": "300ms" }
+    };
     const _sfc_main$2 = /* @__PURE__ */ defineComponent({
       __name: "Index",
       setup(__props) {
+        const show = ref(false);
+        onMounted(() => {
+          setTimeout(() => {
+            show.value = true;
+          }, 80);
+        });
         return (_ctx, _cache) => {
-          return openBlock(), createElementBlock(Fragment, null, [
-            _cache[0] || (_cache[0] = createBaseVNode("h2", null, "about", -1)),
-            _cache[1] || (_cache[1] = createBaseVNode("div", null, [
-              createBaseVNode("div", null, [
-                createBaseVNode("p", null, "Click on the Wails logo to learn more")
-              ])
-            ], -1))
-          ], 64);
+          return openBlock(), createElementBlock("div", _hoisted_1$2, [
+            createBaseVNode("div", _hoisted_2$1, [
+              createVNode(Transition, { name: "fade-up" }, {
+                default: withCtx(() => [
+                  show.value ? (openBlock(), createElementBlock("div", _hoisted_3$1, _cache[0] || (_cache[0] = [
+                    createBaseVNode("div", { class: "w-10 h-10 rounded-full bg-orange-100 text-orange-500 flex items-center justify-center text-lg" }, " • ", -1)
+                  ]))) : createCommentVNode("", true)
+                ]),
+                _: 1
+              }),
+              createVNode(Transition, { name: "fade-up" }, {
+                default: withCtx(() => [
+                  show.value ? (openBlock(), createElementBlock("h1", _hoisted_4$1, " SuiDemo ")) : createCommentVNode("", true)
+                ]),
+                _: 1
+              }),
+              createVNode(Transition, { name: "fade-up" }, {
+                default: withCtx(() => [
+                  show.value ? (openBlock(), createElementBlock("p", _hoisted_5$1, " Wails3 · 桌面工具 ")) : createCommentVNode("", true)
+                ]),
+                _: 1
+              }),
+              createVNode(Transition, { name: "fade-up" }, {
+                default: withCtx(() => [
+                  show.value ? (openBlock(), createElementBlock("div", _hoisted_6, _cache[1] || (_cache[1] = [
+                    createBaseVNode("p", null, null, -1),
+                    createBaseVNode("p", null, null, -1),
+                    createBaseVNode("div", { class: "h-2" }, null, -1),
+                    createBaseVNode("p", null, "只是在合适的时候，", -1),
+                    createBaseVNode("p", { class: "font-medium" }, " 让复杂的事物变得简单一些。 ", -1)
+                  ]))) : createCommentVNode("", true)
+                ]),
+                _: 1
+              }),
+              createVNode(Transition, { name: "fade-up" }, {
+                default: withCtx(() => [
+                  show.value ? (openBlock(), createElementBlock("div", _hoisted_7, _cache[2] || (_cache[2] = [
+                    createBaseVNode("span", { class: "w-12 h-px bg-neutral-200" }, null, -1)
+                  ]))) : createCommentVNode("", true)
+                ]),
+                _: 1
+              }),
+              createVNode(Transition, { name: "fade-up" }, {
+                default: withCtx(() => [
+                  show.value ? (openBlock(), createElementBlock("div", _hoisted_8, _cache[3] || (_cache[3] = [
+                    createBaseVNode("p", null, "Designed & Built by Jin Gong", -1),
+                    createBaseVNode("p", null, "© 2026 Light Prompt", -1)
+                  ]))) : createCommentVNode("", true)
+                ]),
+                _: 1
+              })
+            ])
+          ]);
         };
       }
     });
+    const About = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-8cffef11"]]);
     const _hoisted_1$1 = { class: "h-screen w-screen flex flex-col text-black dark:text-white" };
     const _hoisted_2 = { class: "flex flex-1 overflow-hidden" };
     const _hoisted_3 = {
@@ -108611,7 +108746,7 @@ summary tabindex target title type usemap value width wmode wrap`;
         const components2 = {
           general: General,
           shortcut: Shortcut,
-          about: _sfc_main$2
+          about: About
         };
         const getComponent2 = computed(() => components2[selected.value]);
         function handleMenu(item) {
@@ -108653,7 +108788,7 @@ summary tabindex target title type usemap value width wmode wrap`;
         };
       }
     });
-    const MainPage = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-cf24fd6e"]]);
+    const MainPage = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-5487386a"]]);
     const _hoisted_1 = { class: "flex pt-4 h-screen w-screen h-full w-full bg-gray-100/90 drag-region dark:bg-gray-900" };
     const _sfc_main = /* @__PURE__ */ defineComponent({
       __name: "Index",

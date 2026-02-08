@@ -8,7 +8,7 @@
             >
               <a-select-option value="zh" >简体中文</a-select-option>
               <a-select-option value="en">English</a-select-option>
-              <a-select-option value="zh-Hk">繁體中文</a-select-option>
+              <a-select-option value="zhhk">繁體中文</a-select-option>
             </a-select>
   </div>
 </template>

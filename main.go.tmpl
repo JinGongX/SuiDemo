@@ -1,14 +1,12 @@
 package main
 
 import (
-	"changeme/services"
+	services "changeme/internal/services"
 	"embed"
 	_ "embed"
-	"fmt"
 	"log"
 
 	"github.com/wailsapp/wails/v3/pkg/application"
-	"github.com/wailsapp/wails/v3/pkg/events"
 )
 
 // Wails uses Go's `embed` package to embed the frontend files into the binary.
@@ -19,36 +17,18 @@ import (
 //go:embed all:frontend/dist
 var assets embed.FS
 
-type AppService struct {
-	App          *application.App
-	secondWindow *application.WebviewWindow
-	mainwindow   *application.WebviewWindow
-}
-
-func (a *AppService) SetApp(app *application.App) {
-	a.App = app
-}
-
-func (a *AppService) OpenSecondWindow() {
-	if a.secondWindow != nil {
-		fmt.Println("[DEBUG] secondWindow is not nil")
-		a.secondWindow.Show()
-	} else {
-		fmt.Println("[ERROR] secondWindow is nil")
-	}
-}
-
 // main function serves as the application's entry point. It initializes the application, creates a window,
 // and starts a goroutine that emits a time-based event every second. It subsequently runs the application and
 // logs any error that might occur.
 func main() {
-	appservice := &AppService{}
-
-	suiService, errt := services.NewSuiStore()
-	if errt != nil {
+	appservice := &services.AppService{}
+	// Initialize the database
+	suidb, err := services.NewSuiStore()
+	defer suidb.Close()
+	if err != nil {
 		// 处理错误，比如日志或退出
 	}
- 
+
 	// Create a new Wails application by providing the necessary options.
 	// Variables 'Name' and 'Description' are for application metadata.
 	// 'Assets' configures the asset server with the 'FS' variable pointing to the frontend files.
@@ -59,7 +39,7 @@ func main() {
 		Description: "A demo of using raw HTML & CSS",
 		Services: []application.Service{
 			application.NewService(appservice),
-			application.NewService(suiService),
+			application.NewService(services.NewHotkeyService(suidb)),
 		},
 		Assets: application.AssetOptions{
 			Handler: application.AssetFileServerFS(assets),
@@ -69,46 +49,9 @@ func main() {
 		},
 	})
 
-	// Create a new window with the necessary options.
-	// 'Title' is the title of the window.
-	// 'Mac' options tailor the window when running on macOS.
-	// 'BackgroundColour' is the background colour of the window.
-	// 'URL' is the URL that will be loaded into the webview.
-	app.Window.NewWithOptions(application.WebviewWindowOptions{
-		Title: "main",
-		Mac: application.MacWindow{
-			InvisibleTitleBarHeight: 50,
-			Backdrop:                application.MacBackdropTranslucent,
-			TitleBar:                application.MacTitleBarHiddenInset,
-		},
-		//BackgroundColour: application.NewRGB(27, 38, 54),
-		URL:              "/",
-	})
-	//add secondWindow
-	secondWindow := app.Window.NewWithOptions(application.WebviewWindowOptions{
-		Title:     "second",
-		Name:      "second",
-		Width:     340,
-		Height:    320,
-		//Frameless: true, // ✅ 去除边框
-		Mac: application.MacWindow{
-			InvisibleTitleBarHeight: 50,
-			//Backdrop:                application.MacBackdropTranslucent,
-			TitleBar: application.MacTitleBarHidden,
-			Backdrop: application.MacBackdropTransparent, // 可选：背景透明
-		},
-		BackgroundColour: application.NewRGB(27, 38, 54),
-		URL:              "/#/second",
-		Hidden: true, // ✅ 初始状态为隐藏
-	}) 
-	appservice.secondWindow = secondWindow
 	appservice.SetApp(app)
-
-	secondWindow.RegisterHook(events.Common.WindowClosing, func(e *application.WindowEvent) {
-		// Prevent the window from closing
-		secondWindow.Hide()
-		e.Cancel() // 取消关闭事件
-	})
+	// Register hotkeys from the database and associate them with the second window.
+	services.LoadAndRegisterHotkeysFrom(suidb, services.HotkeyShowSecondWindow)
 
 	// Create a goroutine that emits an event containing the current time every second.
 	// The frontend can listen to this event and update the UI accordingly.
@@ -121,10 +64,10 @@ func main() {
 	// }()
 
 	// Run the application. This blocks until the application has been exited.
-	err := app.Run()
+	_err := app.Run()
 
 	// If an error occurred while running the application, log it and exit.
-	if err != nil {
-		log.Fatal(err)
+	if _err != nil {
+		log.Fatal(_err)
 	}
 }

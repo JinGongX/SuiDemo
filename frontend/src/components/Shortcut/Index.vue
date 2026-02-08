@@ -4,7 +4,7 @@ import ListItem from '../Setting/ListRow.vue'
 import ShortcutInput from '../Setting/ShortcutInput.vue';
 import { parseShortcutToHotkey,formatHotkeyStringmac } from '../../utils/hotkeyUtils' ; // 🔁 引入工具函数
 
-import { UpHotkey,GetHotkeys} from '../../../bindings/changeme/services/suistore'
+import { UpHotkey,GetHotkeys} from '../../../bindings/changeme/internal/services/hotkeyService';
 
 import { message } from 'ant-design-vue';
 
@@ -18,7 +18,6 @@ let lastSaved = '';
 //const action = 'OpenSearch';
 // 监听变化自动保存
 watch(OpenShortcut, async (newShortcut) => {
-  //message.info('快捷键已更改: ' + isInitialized.value);
    if (!isInitialized.value) return;
 
   if (!newShortcut || newShortcut === lastSaved) return;
@@ -26,8 +25,7 @@ watch(OpenShortcut, async (newShortcut) => {
   try {
    await SendHanld(1,newShortcut); 
   } catch (e: any) {
-    message.success('快捷键保存失败: ' + e.message);
-    //console.error('快捷键保存失败:', e.message);
+    message.success('快捷键保存失败: ' + e.message); 
   }
 },{ flush: 'post' }
 );
