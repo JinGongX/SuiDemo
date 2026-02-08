@@ -19,14 +19,15 @@
 ## 简体中文
 
 🎯 一个使用 [Wails v3](https://v3alpha.wails.io) 构建的现代桌面应用模板，开箱即用地集成了以下功能：
-
 - 🌍 多语言支持
 - 🌗 黑暗 / 明亮主题切换
 - 🗂️ SQLite 数据库读写示例（增删改查）
+- ⌨️ 快捷热键支持（支持后续扩展与自定义）
 - 🧱 可扩展的前后端架构，适合二次开发
 - 🚀 ```wails3 init -n "Your Project Name" -t https://github.com/JinGongX/SuiDemo``` 直接创建项目
 ---
 
+- ✨ 可配置快捷热键功能
 ## 💻 技术栈
 
 | 部分         | 技术                     |
@@ -106,6 +107,7 @@ Apache-2.0 License
 - ✅ Internationalization (i18n) using `vue-i18n`
 - 🌗 Automatic light/dark theme support with manual override
 - 🗃️ SQLite database integration with CRUD operations
+- ⌨️ Keyboard shortcut (hotkey) support for efficient interaction and easy extension
 - ⚙️ Settings panel and hotkey configuration demo
 - 💡 Built with Wails v3, Vue 3, and TypeScript
 - 🚀 ```wails3 init -n "Your Project Name" -t https://github.com/JinGongX/SuiDemo``` Create a project
