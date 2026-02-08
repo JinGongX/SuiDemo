@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue'
 import { setTheme, getCurrentTheme, ThemeMode } from '../../utils/ThemeManager'
 
-const themevalue = ref<ThemeMode>('systemdefault')
+const themevalue = ref<ThemeMode>('light')
 
 const themeChange = (val: ThemeMode) => {
   setTheme(val) 
