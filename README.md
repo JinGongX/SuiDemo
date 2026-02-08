@@ -73,7 +73,8 @@ SuiDemo/
 │   │   ├── locales/         # 多语言资源文件
 │   │   ├── components/   # Vue 组件
 │   │   └── App.vue
-├── services/             # Go 后端服务
+├── internal/             # Go 后端服务
+├── platform/             # mac / win 差异
 ├── main.go               # 应用入口
 ├── Taskfile.yml            # Wails 配置文件
 └── go.mod
@@ -148,7 +149,8 @@ SuiDemo/
 │   │   ├── locales/          
 │   │   ├── components/    
 │   │   └── App.vue
-├── services/             # Go api code
+├── internal/             # Go api code
+├── platform/             # mac / win difference
 ├── main.go                
 ├── Taskfile.yml            # Wails config
 └── go.mod
