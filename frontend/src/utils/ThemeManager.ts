@@ -26,7 +26,7 @@ export function applyTheme(mode: ThemeMode) {
 }
 
 export function initTheme() {
-  const savedTheme = (localStorage.getItem(THEME_KEY) || 'systemdefault') as ThemeMode
+  const savedTheme = (localStorage.getItem(THEME_KEY) || 'light') as ThemeMode
   applyTheme(savedTheme)
 
   // 监听系统变化，仅在 systemdefault 时响应
@@ -44,7 +44,7 @@ export function setTheme(mode: ThemeMode) {
 }
 
 export function getCurrentTheme(): ThemeMode {
-  return (localStorage.getItem(THEME_KEY) || 'systemdefault') as ThemeMode
+  return (localStorage.getItem(THEME_KEY) || 'light') as ThemeMode
 }
 // 全局响应式主题状态
 //export const themeMode = ref<ThemeMode>(getCurrentTheme())
