@@ -2,12 +2,13 @@
 import { ref,watch ,onMounted,nextTick} from 'vue'
 import ListItem from '../Setting/ListRow.vue' 
 import ShortcutInput from '../Setting/ShortcutInput.vue';
-import { parseShortcutToHotkey,formatHotkeyStringmac } from '../../utils/hotkeyUtils' ; // 🔁 引入工具函数
+import WinShortcutInput from '../Setting/WinShortcutInput.vue';
+import { parseShortcutToHotkeyWin,parseShortcutToHotkey,formatHotkeyStringmac ,formatHotkeyStringWin} from '../../utils/hotkeyUtils'; // 🔁 引入工具函数
 
 import { UpHotkey,GetHotkeys} from '../../../bindings/changeme/internal/services/hotkeyService';
-
+import {  IsmacOS } from '../../utils/osinfo'
 import { message } from 'ant-design-vue';
-
+const ismacos=ref(false)
 // const modelValue = ref(false)
 const OpenShortcut = ref('');
 const OpenSetting = ref('');
@@ -23,7 +24,11 @@ watch(OpenShortcut, async (newShortcut) => {
   if (!newShortcut || newShortcut === lastSaved) return;
 
   try {
-   await SendHanld(1,newShortcut); 
+   if(ismacos.value){
+      await SendHanld(1,newShortcut); 
+    }else{
+      await SendHanldWin(1,newShortcut); 
+    }
   } catch (e: any) {
     message.success('快捷键保存失败: ' + e.message); 
   }
@@ -36,7 +41,11 @@ watch(OpenSetting, async (newShortcut) => {
 
   if (!newShortcut || newShortcut === lastSaved) return;
   try {
-   await SendHanld(2,newShortcut); 
+   if(ismacos.value){
+      await SendHanld(2,newShortcut); 
+    }else{
+      await SendHanldWin(2,newShortcut); 
+    }
   } catch (e: any) {
     message.success('快捷键保存失败: ' + e.message);
   }
@@ -58,6 +67,20 @@ const SendHanld = async (item,newShortcut) => {
   }
 };
 
+const SendHanldWin = async (item,newShortcut) => {
+   try {
+     const parsed = parseShortcutToHotkeyWin(newShortcut);
+     if (!parsed) {
+       console.error('❌ 快捷键格式错误:', newShortcut);
+       return;
+     }
+    message.success('快捷键已保存'); 
+    await UpHotkey(item,parsed.key, parsed.modifier);
+  } catch (e: any) {
+    message.success('快捷键保存失败: ' + e.message);
+  }
+};
+
 interface HotkeyItem {
   id: number;
   keycode: number;
@@ -67,9 +90,15 @@ const hotkeyentry = ref<HotkeyItem[]>([]);
 
 const Gethotkey = async () => {
   hotkeyentry.value = await GetHotkeys(); 
-  if (hotkeyentry.value && hotkeyentry.value.length > 0) {
-   OpenShortcut.value = formatHotkeyStringmac(hotkeyentry.value[0].keycode, hotkeyentry.value[0].modifiers);
-   OpenSetting.value = formatHotkeyStringmac(hotkeyentry.value[1].keycode, hotkeyentry.value[1].modifiers);
+  if (hotkeyentry.value && hotkeyentry.value.length > 0) { 
+    if(ismacos.value){
+       OpenShortcut.value = formatHotkeyStringmac(hotkeyentry.value[0].keycode, hotkeyentry.value[0].modifiers);
+       OpenSetting.value = formatHotkeyStringmac(hotkeyentry.value[1].keycode, hotkeyentry.value[1].modifiers);
+    }
+    else{
+      OpenShortcut.value = formatHotkeyStringWin(hotkeyentry.value[0].keycode, hotkeyentry.value[0].modifiers);
+      OpenSetting.value = formatHotkeyStringWin(hotkeyentry.value[1].keycode, hotkeyentry.value[1].modifiers);
+    }
     await nextTick();
     isInitialized.value = true;
   }
@@ -77,6 +106,7 @@ const Gethotkey = async () => {
 
 
  onMounted(async() => {
+    ismacos.value=IsmacOS()
     Gethotkey(); 
      // 等下一轮 DOM 渲染完成后才启用监听，避免初始赋值触发 watch
  });
@@ -89,10 +119,12 @@ const Gethotkey = async () => {
   <div> 
        <div class="bg-white rounded-lg shadow divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
          <ListItem label="打开主窗口" subLabel="按下组合键，必须包含至少一个修饰键和一个主键">
-            <ShortcutInput v-model:modelValue="OpenShortcut" />
+             <ShortcutInput v-if="ismacos" v-model:modelValue="OpenShortcut"  />
+            <WinShortcutInput v-else v-model:modelValue="OpenShortcut" />
           </ListItem>
           <ListItem label="打开偏好设置窗口" subLabel="">
-             <ShortcutInput v-model:modelValue="OpenSetting" />
+              <ShortcutInput v-if="ismacos" v-model:modelValue="OpenSetting" />
+             <WinShortcutInput v-else v-model:modelValue="OpenSetting" />
           </ListItem> 
       </div>
   </div>
