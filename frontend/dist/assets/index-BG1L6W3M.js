@@ -6,7 +6,7 @@ var __commonJS = (cb, mod) => function __require() {
 };
 var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
 var require_index_001 = __commonJS({
-  "assets/index-xhxJ1r3h.js"(exports, module) {
+  "assets/index-BG1L6W3M.js"(exports, module) {
     (function polyfill() {
       const relList = document.createElement("link").relList;
       if (relList && relList.supports && relList.supports("modulepreload")) {
@@ -100380,7 +100380,7 @@ summary tabindex target title type usemap value width wmode wrap`;
       themeConfig.value = getAntdCurrentTheme(resolvedTheme);
     }
     function initTheme() {
-      const savedTheme = localStorage.getItem(THEME_KEY) || "systemdefault";
+      const savedTheme = localStorage.getItem(THEME_KEY) || "light";
       applyTheme(savedTheme);
       window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
         const current = getCurrentTheme();
@@ -100394,7 +100394,7 @@ summary tabindex target title type usemap value width wmode wrap`;
       applyTheme(mode);
     }
     function getCurrentTheme() {
-      return localStorage.getItem(THEME_KEY) || "systemdefault";
+      return localStorage.getItem(THEME_KEY) || "light";
     }
     const currentMode = ref(localStorage.getItem("theme") || "light");
     const themeConfig = ref(getAntdCurrentTheme(currentMode.value));
@@ -108035,6 +108035,23 @@ summary tabindex target title type usemap value width wmode wrap`;
     function OpenSecondWindow() {
       return ByID(1968391568);
     }
+    function GetOS() {
+      return ByID(1331017817);
+    }
+    let cachedOS = null;
+    let osInitPromise = null;
+    async function initOS() {
+      if (!osInitPromise) {
+        osInitPromise = GetOS().then((os) => {
+          cachedOS = os;
+        });
+      }
+      return osInitPromise;
+    }
+    function getOS() {
+      return cachedOS;
+    }
+    const OS_READY = initOS();
     const _hoisted_1$7 = { class: "flex items-center justify-between px-4 py-3" };
     const _hoisted_2$3 = { style: { "text-align": "left" } };
     const _hoisted_3$3 = { class: "text-sm text-gray-900 font-medium dark:text-white" };
@@ -108042,7 +108059,7 @@ summary tabindex target title type usemap value width wmode wrap`;
       key: 0,
       class: "text-xs text-gray-500 mt-1"
     };
-    const _hoisted_5$3 = { class: "inline-flex items-center cursor-pointer" };
+    const _hoisted_5$2 = { class: "inline-flex items-center cursor-pointer" };
     const _sfc_main$8 = /* @__PURE__ */ defineComponent({
       __name: "ListRow",
       props: {
@@ -108056,7 +108073,7 @@ summary tabindex target title type usemap value width wmode wrap`;
               createBaseVNode("div", _hoisted_3$3, toDisplayString$1(_ctx.label), 1),
               _ctx.subLabel ? (openBlock(), createElementBlock("div", _hoisted_4$3, toDisplayString$1(_ctx.subLabel), 1)) : createCommentVNode("", true)
             ]),
-            createBaseVNode("label", _hoisted_5$3, [
+            createBaseVNode("label", _hoisted_5$2, [
               renderSlot(_ctx.$slots, "default")
             ])
           ]);
@@ -108115,7 +108132,7 @@ summary tabindex target title type usemap value width wmode wrap`;
     const _sfc_main$6 = /* @__PURE__ */ defineComponent({
       __name: "ThemeSetting",
       setup(__props) {
-        const themevalue = ref("systemdefault");
+        const themevalue = ref("light");
         const themeChange = (val) => {
           setTheme(val);
           const bc = new BroadcastChannel("theme");
@@ -108158,7 +108175,7 @@ summary tabindex target title type usemap value width wmode wrap`;
     const _hoisted_2$2 = { class: "bg-white rounded-lg shadow divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700" };
     const _hoisted_3$2 = { class: "text-lg font-bold text-gray-800 dark:text-white" };
     const _hoisted_4$2 = { class: "bg-white rounded-lg shadow divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700" };
-    const _hoisted_5$2 = { class: "text-lg font-bold text-gray-800 dark:text-white" };
+    const _hoisted_5$1 = { class: "text-lg font-bold text-gray-800 dark:text-white" };
     const _hoisted_6$1 = { class: "mt-4 bg-white rounded-lg shadow divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700" };
     const _sfc_main$5 = /* @__PURE__ */ defineComponent({
       __name: "Index",
@@ -108208,7 +108225,7 @@ summary tabindex target title type usemap value width wmode wrap`;
                   _: 1
                 }, 8, ["label"])
               ]),
-              createBaseVNode("h2", _hoisted_5$2, toDisplayString$1(_ctx.$t("components.general.title.update")), 1),
+              createBaseVNode("h2", _hoisted_5$1, toDisplayString$1(_ctx.$t("components.general.title.update")), 1),
               createBaseVNode("div", _hoisted_6$1, [
                 createVNode(_sfc_main$8, {
                   label: _ctx.$t("components.general.label.automatic_up"),
@@ -108637,7 +108654,7 @@ summary tabindex target title type usemap value width wmode wrap`;
       class: "text-2xl font-semibold text-neutral-800 mb-1 dark:text-white",
       style: { "transition-delay": "80ms" }
     };
-    const _hoisted_5$1 = {
+    const _hoisted_5 = {
       key: 0,
       class: "text-sm text-neutral-500 mb-6 dark:text-neutral-300",
       style: { "transition-delay": "120ms" }
@@ -108685,7 +108702,7 @@ summary tabindex target title type usemap value width wmode wrap`;
               }),
               createVNode(Transition, { name: "fade-up" }, {
                 default: withCtx(() => [
-                  show.value ? (openBlock(), createElementBlock("p", _hoisted_5$1, " Wails3 · 桌面工具 ")) : createCommentVNode("", true)
+                  show.value ? (openBlock(), createElementBlock("p", _hoisted_5, " Wails3 · 桌面工具 ")) : createCommentVNode("", true)
                 ]),
                 _: 1
               }),
@@ -108726,15 +108743,12 @@ summary tabindex target title type usemap value width wmode wrap`;
     const About = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-8cffef11"]]);
     const _hoisted_1$1 = { class: "h-screen w-screen flex flex-col text-black dark:text-white" };
     const _hoisted_2 = { class: "flex flex-1 overflow-hidden" };
-    const _hoisted_3 = {
-      class: "w-44 bg-gray-100/20 font-bold text-base p-3 space-y-2 dark:bg-gray-800",
-      style: { "padding-top": "40px" }
-    };
-    const _hoisted_4 = ["onClick"];
-    const _hoisted_5 = { class: "flex-1 p-4 overflow-y-auto max-h-screen scroll-container bg-gray-50 dark:bg-gray-950" };
+    const _hoisted_3 = ["onClick"];
+    const _hoisted_4 = { class: "flex-1 p-4 overflow-y-auto max-h-screen scroll-container bg-gray-50 dark:bg-gray-950" };
     const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       __name: "Index",
       setup(__props) {
+        const isosname = ref(false);
         const { t: t2 } = useI18n();
         const requests = computed(() => [
           { id: "general", label: t2("menus.general"), icon: SettingOutlined, type: "component" },
@@ -108763,10 +108777,20 @@ summary tabindex target title type usemap value width wmode wrap`;
             if (el) el.scrollTop = 0;
           });
         });
+        onMounted(async () => {
+          await OS_READY;
+          const osname = getOS();
+          if (osname === "darwin") {
+            isosname.value = true;
+          }
+        });
         return (_ctx, _cache) => {
           return openBlock(), createElementBlock("div", _hoisted_1$1, [
             createBaseVNode("div", _hoisted_2, [
-              createBaseVNode("div", _hoisted_3, [
+              createBaseVNode("div", {
+                class: "w-44 bg-gray-100/20 font-bold text-base p-3 space-y-2 dark:bg-gray-800",
+                style: normalizeStyle$1(isosname.value ? "padding-top:40px" : "")
+              }, [
                 (openBlock(true), createElementBlock(Fragment, null, renderList(requests.value, (item, index2) => {
                   return openBlock(), createElementBlock("div", {
                     key: index2,
@@ -108777,10 +108801,10 @@ summary tabindex target title type usemap value width wmode wrap`;
                       style: normalizeStyle$1(["margin-right: 10px;vertical-align: middle;", item.id === "shortcut" ? "font-size: 19px" : "font-size: 18px"])
                     }, null, 8, ["style"])),
                     createBaseVNode("span", null, toDisplayString$1(item.label), 1)
-                  ], 10, _hoisted_4);
+                  ], 10, _hoisted_3);
                 }), 128))
-              ]),
-              createBaseVNode("div", _hoisted_5, [
+              ], 4),
+              createBaseVNode("div", _hoisted_4, [
                 (openBlock(), createBlock(resolveDynamicComponent(getComponent2.value)))
               ])
             ])
@@ -108788,7 +108812,7 @@ summary tabindex target title type usemap value width wmode wrap`;
         };
       }
     });
-    const MainPage = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-5487386a"]]);
+    const MainPage = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-83ec0437"]]);
     const _hoisted_1 = { class: "flex pt-4 h-screen w-screen h-full w-full bg-gray-100/90 drag-region dark:bg-gray-900" };
     const _sfc_main = /* @__PURE__ */ defineComponent({
       __name: "Index",

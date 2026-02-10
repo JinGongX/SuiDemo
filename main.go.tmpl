@@ -40,6 +40,7 @@ func main() {
 		Services: []application.Service{
 			application.NewService(appservice),
 			application.NewService(services.NewHotkeyService(suidb)),
+			application.NewService(services.NewSystemInfo()),
 		},
 		Assets: application.AssetOptions{
 			Handler: application.AssetFileServerFS(assets),

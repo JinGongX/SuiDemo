@@ -2,6 +2,7 @@ package services
 
 import (
 	"database/sql"
+	"fmt"
 	"os"
 	"path/filepath"
 
@@ -58,6 +59,7 @@ func (cs *SuiStore) Stop() error {
 }
 
 func Migrate(db *sql.DB) error {
+	fmt.Println("🚀 开始数据库迁移...")
 	// 创建表
 	_, err := db.Exec(`
 	CREATE TABLE IF NOT EXISTS hotkeys (
@@ -80,15 +82,12 @@ func Migrate(db *sql.DB) error {
 	}
 
 	if count == 0 {
-		_, err = db.Exec(`
-			INSERT INTO hotkeys (keycode, modifiers, description, target)
-			VALUES 
-				(34, 768, 'testdemo', '1'),
-				(46, 768, 'testdemo2', '2');
-		`)
+		var sqlhotkeys = OSinithotkeys()
+		_, err = db.Exec(sqlhotkeys)
 		if err != nil {
 			return err
 		}
 	}
+	fmt.Println("✅ 数据库迁移完成")
 	return nil
 }

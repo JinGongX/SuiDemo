@@ -3,7 +3,9 @@
 
 import * as AppService from "./appservice.js";
 import * as HotkeyService from "./hotkeyservice.js";
+import * as SystemInfo from "./systeminfo.js";
 export {
     AppService,
-    HotkeyService
+    HotkeyService,
+    SystemInfo
 };

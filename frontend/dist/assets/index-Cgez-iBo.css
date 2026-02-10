@@ -815,6 +815,10 @@ video {
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.blur {
+  --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -1221,11 +1225,11 @@ h2[data-v-524ad25f]{
   transition: all 0.4s ease;
 }
 
-html[data-v-5487386a], body[data-v-5487386a] {
+html[data-v-83ec0437], body[data-v-83ec0437] {
   margin: 0;
   overflow-x: hidden; /* 禁止横向滚动 */
   overflow-y: hidden;
 }
-.drag-region[data-v-5487386a] {
+.drag-region[data-v-83ec0437] {
   -webkit-app-region: drag;
 }

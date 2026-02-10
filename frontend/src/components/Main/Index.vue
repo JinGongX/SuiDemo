@@ -2,7 +2,7 @@
   <div class="h-screen w-screen   flex flex-col  text-black  dark:text-white ">
     <div class="flex flex-1    overflow-hidden"> 
       <!-- 左侧请求栏 -->
-      <div class="w-44 bg-gray-100/20 font-bold text-base p-3 space-y-2  dark:bg-gray-800" style="padding-top:40px"> 
+      <div class="w-44 bg-gray-100/20 font-bold text-base p-3 space-y-2  dark:bg-gray-800" :style="isosname?'padding-top:40px':''"> 
           <div v-for="(item, index) in requests" :key="index" @click="handleMenu(item)" 
              :class="[' cursor-pointer p-2 rounded text-left',selected === item.id ? 'bg-orange-300/90' : 'hover:bg-gray-300/70']">
             <component :is="item.icon" :style="['margin-right: 10px;vertical-align: middle;',item.id==='shortcut'?'font-size: 19px':'font-size: 18px']" />
@@ -18,11 +18,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref ,computed,watch ,nextTick} from 'vue'
+import { ref ,computed,watch ,nextTick,onMounted} from 'vue'
 import { useI18n } from 'vue-i18n'
 import { SettingOutlined,BulbOutlined ,FormOutlined,SlackOutlined ,SendOutlined } from '@ant-design/icons-vue';
 import { OpenSecondWindow } from  '../../../bindings/changeme/internal/services/appservice'
-
+import {  getOS,OS_READY } from '../../utils/osinfo'
+const isosname =ref(false)
 const { t } = useI18n()
 //菜单结构
 type MenuItem =
@@ -75,7 +76,13 @@ watch(selected, () => {
   })
 })
 
-
+onMounted(async() => {
+   await OS_READY 
+   const osname = getOS() //判断是否为macos 
+   if (osname==='darwin'){
+      isosname.value=true;
+   }
+})
 </script>
 
 <style scoped>
