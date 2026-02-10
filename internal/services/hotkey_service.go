@@ -2,7 +2,7 @@ package services
 
 import (
 	"changeme/internal/models"
-	hotkey "changeme/platform/mac"
+	hotkey "changeme/platform"
 	"fmt"
 	"sync"
 
