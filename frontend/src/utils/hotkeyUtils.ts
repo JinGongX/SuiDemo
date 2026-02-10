@@ -123,3 +123,77 @@ export function formatHotkeyStringmac(keycode: number, modifiers: number): strin
 
   return [...mods, key].join('+');
 }
+
+//win
+export function formatHotkeyStringWin(keycode: number, modifiers: number): string {
+  const keyMap: Record<number, string> = {
+    65: 'A', 66: 'B', 67: 'C', 68: 'D', 69: 'E', 70: 'F', 71: 'G',
+    72: 'H', 73: 'I', 74: 'J', 75: 'K', 76: 'L', 77: 'M', 78: 'N',
+    79: 'O', 80: 'P', 81: 'Q', 82: 'R', 83: 'S', 84: 'T', 85: 'U',
+    86: 'V', 87: 'W', 88: 'X', 89: 'Y', 90: 'Z',
+    13: 'Enter', 27: 'Esc', 32: 'Space',
+    112: 'F1', 113: 'F2', 114: 'F3', 115: 'F4', 116: 'F5', 117: 'F6',
+    118: 'F7', 119: 'F8', 120: 'F9', 121: 'F10', 122: 'F11', 123: 'F12',
+    37: 'Left', 38: 'Up', 39: 'Right', 40: 'Down',
+  };
+
+  const mods: string[] = [];
+
+  if (modifiers & 1) mods.push('Alt');
+  if (modifiers & 2) mods.push('Ctrl');
+  if (modifiers & 4) mods.push('Shift');
+  if (modifiers & 8) mods.push('Win');
+
+  const key = keyMap[keycode] ?? `KeyCode(${keycode})`;
+
+  return [...mods, key].join('+');
+}
+
+
+export function parseShortcutToHotkeyWin(shortcut: string): { key: number, modifier: number } {
+  const parts = shortcut.toUpperCase().split('+');
+  let keyPart = '';
+  let modifier = 0;
+
+  for (const part of parts) {
+    switch (part) {
+      case 'ALT':
+        modifier |= 1;
+        break;
+      case 'CTRL':
+      case 'CONTROL':
+        modifier |= 2;
+        break;
+      case 'SHIFT':
+        modifier |= 4;
+        break;
+      case 'WIN':
+      case 'CMD':
+      case 'META':
+        modifier |= 8;
+        break;
+      default:
+        keyPart = part;
+    }
+  }
+ 
+  const key = keyWinMap[keyPart] ?? parseInt(keyPart);
+
+  return {
+    key,
+    modifier,
+  };
+}
+
+// 快捷键字符串 => 键码映射（win keycode 映射）
+const keyWinMap: Record<string, number> = {
+  A: 65, B: 66, C: 67, D: 68, E: 69, F: 70, G: 71,
+    H: 72, I: 73, J: 74, K: 75, L: 76, M: 77, N: 78,
+    O: 79, P: 80, Q: 81, R: 82, S: 83, T: 84, U: 85,
+    V: 86, W: 87, X: 88, Y: 89, Z: 90,
+    ENTER: 13, ESC: 27, SPACE: 32,
+    F1: 112, F2: 113, F3: 114, F4: 115,
+    F5: 116, F6: 117, F7: 118, F8: 119,
+    F9: 120, F10: 121, F11: 122, F12: 123,
+    UP: 38, DOWN: 40, LEFT: 37, RIGHT: 39,
+};
