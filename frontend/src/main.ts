@@ -6,6 +6,7 @@ import 'ant-design-vue/dist/reset.css';
 import {i18n,setupI18n } from './utils/i18n'
 import { initTheme } from './utils/ThemeManager'//add
 import router from './router/index'
+import {GetLanguage} from  '../bindings/changeme/internal/services/appconfigservice'
 
 initTheme()
 if (window.location.hash === '' || window.location.hash === '#/') {
@@ -14,5 +15,9 @@ if (window.location.hash === '' || window.location.hash === '#/') {
 async function bootstrap(){
     await setupI18n('zh')//默认语言或从后端读取
     createApp(App).use(Antd).use(router).use(i18n).mount('#app')
+    router.isReady().then(async () => {
+        const lang = await GetLanguage() //从后端读取语言设置 lang as any|| 'zh'
+        await setupI18n(lang as any|| 'zh')
+    })
 }
 bootstrap()

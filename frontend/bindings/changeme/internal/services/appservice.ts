@@ -7,12 +7,26 @@ import { Call as $Call, CancellablePromise as $CancellablePromise, Create as $Cr
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
+import * as embed$0 from "../../../embed/models.js";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore: Unused imports
 import * as application$0 from "../../../github.com/wailsapp/wails/v3/pkg/application/models.js";
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore: Unused imports
+import * as $models from "./models.js";
 
 export function OpenSecondWindow(): $CancellablePromise<void> {
     return $Call.ByID(1968391568);
 }
 
-export function SetApp(app: application$0.App | null): $CancellablePromise<void> {
-    return $Call.ByID(1008840355, app);
+export function SetApp(app: application$0.App | null, i18nFS: embed$0.FS, suidb: $models.SuiStore | null): $CancellablePromise<void> {
+    return $Call.ByID(1008840355, app, i18nFS, suidb);
+}
+
+/**
+ * 更新应用语言设置并刷新菜单显示
+ */
+export function SetLanguage(lang: string): $CancellablePromise<void> {
+    return $Call.ByID(3480511666, lang);
 }

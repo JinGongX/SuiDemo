@@ -1,7 +1,7 @@
 //go:build darwin
 // +build darwin
 
-package hotkey
+package platform
 
 /*
 #cgo CFLAGS: -x objective-c

@@ -2,7 +2,7 @@
   <div class="h-screen w-screen   flex flex-col  text-black  dark:text-white ">
     <div class="flex flex-1    overflow-hidden"> 
       <!-- 左侧请求栏 -->
-      <div class="w-44 bg-gray-100/20 font-bold text-base p-3 space-y-2  dark:bg-gray-800" :style="isosname?'padding-top:40px':''"> 
+      <div class="w-44  font-bold text-base p-3 space-y-2  dark:bg-gray-800" :class="isosname?'pt-10 bg-gray-100/20':'bg-gray-100'" > 
           <div v-for="(item, index) in requests" :key="index" @click="handleMenu(item)" 
              :class="[' cursor-pointer p-2 rounded text-left',selected === item.id ? 'bg-orange-300/90' : 'hover:bg-gray-300/70']">
             <component :is="item.icon" :style="['margin-right: 10px;vertical-align: middle;',item.id==='shortcut'?'font-size: 19px':'font-size: 18px']" />

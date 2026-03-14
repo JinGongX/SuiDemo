@@ -3,6 +3,12 @@
     "title": "我的应用",
     "login": "登录"
   },
+  "appmenus": {
+    "second": "第二窗口",
+    "preferences": "偏好设置",
+    "version": "版本:0.3.0",
+    "quit": "退出应用"
+  },
   "menus":{
     "general":"通用设置",
     "shortcut":"快捷键",

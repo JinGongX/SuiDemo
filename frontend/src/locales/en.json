@@ -3,6 +3,12 @@
     "title": "My App",
     "login": "Login"
   },
+  "appmenus": {
+    "second": "Second win",
+    "version": "Version: 0.3.0",
+    "quit": "Quit",
+    "preferences": "Settings"
+  },
   "menus": {
     "about": "About",
     "general": "General",

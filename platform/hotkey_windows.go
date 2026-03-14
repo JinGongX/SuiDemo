@@ -1,7 +1,7 @@
 //go:build windows
 // +build windows
 
-package hotkey
+package platform
 
 import (
 	"fmt"

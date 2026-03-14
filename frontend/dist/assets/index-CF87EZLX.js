@@ -6,7 +6,7 @@ var __commonJS = (cb, mod) => function __require() {
 };
 var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
 var require_index_001 = __commonJS({
-  "assets/index-BG1L6W3M.js"(exports, module) {
+  "assets/index-CF87EZLX.js"(exports, module) {
     (function polyfill() {
       const relList = document.createElement("link").relList;
       if (relList && relList.supports && relList.supports("modulepreload")) {
@@ -100401,7 +100401,7 @@ summary tabindex target title type usemap value width wmode wrap`;
     function getAntdCurrentTheme(mode) {
       return mode === "dark" ? darkTheme : lightTheme;
     }
-    const _sfc_main$9 = /* @__PURE__ */ defineComponent({
+    const _sfc_main$a = /* @__PURE__ */ defineComponent({
       __name: "App",
       setup(__props) {
         const applyTheme2 = () => {
@@ -100435,7 +100435,7 @@ summary tabindex target title type usemap value width wmode wrap`;
       }
       return target;
     };
-    const App = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["__scopeId", "data-v-90c62283"]]);
+    const App = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["__scopeId", "data-v-90c62283"]]);
     /*!
       * shared v11.1.5
       * (c) 2025 kazuya kawaguchi
@@ -104769,6 +104769,12 @@ summary tabindex target title type usemap value width wmode wrap`;
       title: "My App",
       login: "Login"
     };
+    const appmenus$2 = {
+      second: "Second win",
+      version: "Version: 0.3.0",
+      quit: "Quit",
+      preferences: "Settings"
+    };
     const menus$2 = {
       about: "About",
       general: "General",
@@ -104810,12 +104816,19 @@ summary tabindex target title type usemap value width wmode wrap`;
     };
     const en = {
       app: app$2,
+      appmenus: appmenus$2,
       menus: menus$2,
       components: components$2
     };
     const app$1 = {
       title: "我的应用",
       login: "登录"
+    };
+    const appmenus$1 = {
+      second: "第二窗口",
+      preferences: "偏好设置",
+      version: "版本:0.3.0",
+      quit: "退出应用"
     };
     const menus$1 = {
       general: "通用设置",
@@ -104859,8 +104872,15 @@ summary tabindex target title type usemap value width wmode wrap`;
     };
     const zh = {
       app: app$1,
+      appmenus: appmenus$1,
       menus: menus$1,
       components: components$1
+    };
+    const appmenus = {
+      second: "第二窗口",
+      version: "版本: 0.3.0",
+      quit: "退出應用",
+      preferences: "偏好設定"
     };
     const menus = {
       about: "關於",
@@ -104908,7 +104928,8 @@ summary tabindex target title type usemap value width wmode wrap`;
         }
       }
     };
-    const zhhk = {
+    const zhHK = {
+      appmenus,
       menus,
       app,
       components
@@ -104917,7 +104938,7 @@ summary tabindex target title type usemap value width wmode wrap`;
       const messagesMap = {
         en,
         zh,
-        zhhk
+        "zh-HK": zhHK
       };
       return messagesMap[locale2];
     }
@@ -108035,12 +108056,15 @@ summary tabindex target title type usemap value width wmode wrap`;
     function OpenSecondWindow() {
       return ByID(1968391568);
     }
+    function SetLanguage(lang) {
+      return ByID(3480511666, lang);
+    }
     function GetOS() {
       return ByID(1331017817);
     }
     let cachedOS = null;
-    let osInitPromise = null;
-    async function initOS() {
+    let osInitPromise;
+    function initOS() {
       if (!osInitPromise) {
         osInitPromise = GetOS().then((os) => {
           cachedOS = os;
@@ -108049,18 +108073,24 @@ summary tabindex target title type usemap value width wmode wrap`;
       return osInitPromise;
     }
     function getOS() {
+      if (!cachedOS) {
+        throw new Error("OS not initialized yet, await OS_READY first");
+      }
       return cachedOS;
     }
+    function IsmacOS() {
+      return cachedOS === "darwin";
+    }
     const OS_READY = initOS();
-    const _hoisted_1$7 = { class: "flex items-center justify-between px-4 py-3" };
-    const _hoisted_2$3 = { style: { "text-align": "left" } };
-    const _hoisted_3$3 = { class: "text-sm text-gray-900 font-medium dark:text-white" };
-    const _hoisted_4$3 = {
+    const _hoisted_1$8 = { class: "flex items-center justify-between px-4 py-3" };
+    const _hoisted_2$4 = { style: { "text-align": "left" } };
+    const _hoisted_3$4 = { class: "text-sm text-gray-900 font-medium dark:text-white" };
+    const _hoisted_4$4 = {
       key: 0,
       class: "text-xs text-gray-500 mt-1"
     };
-    const _hoisted_5$2 = { class: "inline-flex items-center cursor-pointer" };
-    const _sfc_main$8 = /* @__PURE__ */ defineComponent({
+    const _hoisted_5$3 = { class: "inline-flex items-center cursor-pointer" };
+    const _sfc_main$9 = /* @__PURE__ */ defineComponent({
       __name: "ListRow",
       props: {
         label: {},
@@ -108068,24 +108098,30 @@ summary tabindex target title type usemap value width wmode wrap`;
       },
       setup(__props) {
         return (_ctx, _cache) => {
-          return openBlock(), createElementBlock("div", _hoisted_1$7, [
-            createBaseVNode("div", _hoisted_2$3, [
-              createBaseVNode("div", _hoisted_3$3, toDisplayString$1(_ctx.label), 1),
-              _ctx.subLabel ? (openBlock(), createElementBlock("div", _hoisted_4$3, toDisplayString$1(_ctx.subLabel), 1)) : createCommentVNode("", true)
+          return openBlock(), createElementBlock("div", _hoisted_1$8, [
+            createBaseVNode("div", _hoisted_2$4, [
+              createBaseVNode("div", _hoisted_3$4, toDisplayString$1(_ctx.label), 1),
+              _ctx.subLabel ? (openBlock(), createElementBlock("div", _hoisted_4$4, toDisplayString$1(_ctx.subLabel), 1)) : createCommentVNode("", true)
             ]),
-            createBaseVNode("label", _hoisted_5$2, [
+            createBaseVNode("label", _hoisted_5$3, [
               renderSlot(_ctx.$slots, "default")
             ])
           ]);
         };
       }
     });
-    const _sfc_main$7 = /* @__PURE__ */ defineComponent({
+    const _sfc_main$8 = /* @__PURE__ */ defineComponent({
       __name: "LanguageSwitcher",
       setup(__props) {
-        const locale2 = ref(i18n.global.locale.value);
-        const switchLang = async () => {
-          await setupI18n(locale2.value);
+        const locale2 = computed({
+          get: () => i18n.global.locale.value,
+          set: (val) => {
+            switchLang(val);
+          }
+        });
+        const switchLang = async (lang) => {
+          await setupI18n(lang);
+          await SetLanguage(lang);
         };
         return (_ctx, _cache) => {
           const _component_a_select_option = resolveComponent("a-select-option");
@@ -108096,8 +108132,7 @@ summary tabindex target title type usemap value width wmode wrap`;
               ref: "select",
               value: locale2.value,
               "onUpdate:value": _cache[0] || (_cache[0] = ($event) => locale2.value = $event),
-              style: { "width": "100px" },
-              onChange: switchLang
+              style: { "width": "100px" }
             }, {
               default: withCtx(() => [
                 createVNode(_component_a_select_option, { value: "zh" }, {
@@ -108114,7 +108149,7 @@ summary tabindex target title type usemap value width wmode wrap`;
                   _: 1,
                   __: [2]
                 }),
-                createVNode(_component_a_select_option, { value: "zhhk" }, {
+                createVNode(_component_a_select_option, { value: "zh-HK" }, {
                   default: withCtx(() => _cache[3] || (_cache[3] = [
                     createTextVNode("繁體中文")
                   ])),
@@ -108128,8 +108163,8 @@ summary tabindex target title type usemap value width wmode wrap`;
         };
       }
     });
-    const _hoisted_1$6 = { class: "space-y-2" };
-    const _sfc_main$6 = /* @__PURE__ */ defineComponent({
+    const _hoisted_1$7 = { class: "space-y-2" };
+    const _sfc_main$7 = /* @__PURE__ */ defineComponent({
       __name: "ThemeSetting",
       setup(__props) {
         const themevalue = ref("light");
@@ -108144,7 +108179,7 @@ summary tabindex target title type usemap value width wmode wrap`;
         return (_ctx, _cache) => {
           const _component_a_select_option = resolveComponent("a-select-option");
           const _component_a_select = resolveComponent("a-select");
-          return openBlock(), createElementBlock("div", _hoisted_1$6, [
+          return openBlock(), createElementBlock("div", _hoisted_1$7, [
             createVNode(_component_a_select, {
               value: themevalue.value,
               "onUpdate:value": _cache[0] || (_cache[0] = ($event) => themevalue.value = $event),
@@ -108171,22 +108206,22 @@ summary tabindex target title type usemap value width wmode wrap`;
         };
       }
     });
-    const _hoisted_1$5 = { class: "text-lg font-bold text-gray-800 dark:text-white" };
-    const _hoisted_2$2 = { class: "bg-white rounded-lg shadow divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700" };
-    const _hoisted_3$2 = { class: "text-lg font-bold text-gray-800 dark:text-white" };
-    const _hoisted_4$2 = { class: "bg-white rounded-lg shadow divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700" };
-    const _hoisted_5$1 = { class: "text-lg font-bold text-gray-800 dark:text-white" };
+    const _hoisted_1$6 = { class: "text-lg font-bold text-gray-800 dark:text-white" };
+    const _hoisted_2$3 = { class: "bg-white rounded-lg shadow divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700" };
+    const _hoisted_3$3 = { class: "text-lg font-bold text-gray-800 dark:text-white" };
+    const _hoisted_4$3 = { class: "bg-white rounded-lg shadow divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700" };
+    const _hoisted_5$2 = { class: "text-lg font-bold text-gray-800 dark:text-white" };
     const _hoisted_6$1 = { class: "mt-4 bg-white rounded-lg shadow divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700" };
-    const _sfc_main$5 = /* @__PURE__ */ defineComponent({
+    const _sfc_main$6 = /* @__PURE__ */ defineComponent({
       __name: "Index",
       setup(__props) {
         const modelValue = ref(false);
         return (_ctx, _cache) => {
           return openBlock(), createElementBlock("div", null, [
             createBaseVNode("section", null, [
-              createBaseVNode("h2", _hoisted_1$5, toDisplayString$1(_ctx.$t("components.general.title.application")), 1),
-              createBaseVNode("div", _hoisted_2$2, [
-                createVNode(_sfc_main$8, {
+              createBaseVNode("h2", _hoisted_1$6, toDisplayString$1(_ctx.$t("components.general.title.application")), 1),
+              createBaseVNode("div", _hoisted_2$3, [
+                createVNode(_sfc_main$9, {
                   label: _ctx.$t("components.general.label.startup"),
                   subLabel: ""
                 }, {
@@ -108204,30 +108239,30 @@ summary tabindex target title type usemap value width wmode wrap`;
                   __: [3]
                 }, 8, ["label"])
               ]),
-              createBaseVNode("h2", _hoisted_3$2, toDisplayString$1(_ctx.$t("components.general.title.exterior")), 1),
-              createBaseVNode("div", _hoisted_4$2, [
-                createVNode(_sfc_main$8, {
+              createBaseVNode("h2", _hoisted_3$3, toDisplayString$1(_ctx.$t("components.general.title.exterior")), 1),
+              createBaseVNode("div", _hoisted_4$3, [
+                createVNode(_sfc_main$9, {
                   label: _ctx.$t("components.general.label.language"),
+                  subLabel: ""
+                }, {
+                  default: withCtx(() => [
+                    createVNode(_sfc_main$8)
+                  ]),
+                  _: 1
+                }, 8, ["label"]),
+                createVNode(_sfc_main$9, {
+                  label: _ctx.$t("components.general.label.theme"),
                   subLabel: ""
                 }, {
                   default: withCtx(() => [
                     createVNode(_sfc_main$7)
                   ]),
                   _: 1
-                }, 8, ["label"]),
-                createVNode(_sfc_main$8, {
-                  label: _ctx.$t("components.general.label.theme"),
-                  subLabel: ""
-                }, {
-                  default: withCtx(() => [
-                    createVNode(_sfc_main$6)
-                  ]),
-                  _: 1
                 }, 8, ["label"])
               ]),
-              createBaseVNode("h2", _hoisted_5$1, toDisplayString$1(_ctx.$t("components.general.title.update")), 1),
+              createBaseVNode("h2", _hoisted_5$2, toDisplayString$1(_ctx.$t("components.general.title.update")), 1),
               createBaseVNode("div", _hoisted_6$1, [
-                createVNode(_sfc_main$8, {
+                createVNode(_sfc_main$9, {
                   label: _ctx.$t("components.general.label.automatic_up"),
                   subLabel: ""
                 }, {
@@ -108244,7 +108279,7 @@ summary tabindex target title type usemap value width wmode wrap`;
                   _: 1,
                   __: [4]
                 }, 8, ["label"]),
-                createVNode(_sfc_main$8, {
+                createVNode(_sfc_main$9, {
                   label: _ctx.$t("components.general.label.next_up"),
                   subLabel: ""
                 }, {
@@ -108267,9 +108302,9 @@ summary tabindex target title type usemap value width wmode wrap`;
         };
       }
     });
-    const General = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-a66b4a52"]]);
-    const _hoisted_1$4 = ["innerHTML"];
-    const _sfc_main$4 = /* @__PURE__ */ defineComponent({
+    const General = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-a66b4a52"]]);
+    const _hoisted_1$5 = ["innerHTML"];
+    const _sfc_main$5 = /* @__PURE__ */ defineComponent({
       __name: "ShortcutInput",
       props: {
         modelValue: {}
@@ -108396,6 +108431,148 @@ summary tabindex target title type usemap value width wmode wrap`;
             onBlur: _cache[0] || (_cache[0] = ($event) => isRecording.value = false)
           }, {
             suffix: withCtx(() => [
+              createBaseVNode("span", { innerHTML: display.value }, null, 8, _hoisted_1$5)
+            ]),
+            _: 1
+          });
+        };
+      }
+    });
+    const _hoisted_1$4 = ["innerHTML"];
+    const _sfc_main$4 = /* @__PURE__ */ defineComponent({
+      __name: "WinShortcutInput",
+      props: {
+        modelValue: {}
+      },
+      emits: ["update:modelValue"],
+      setup(__props, { emit: __emit }) {
+        const props2 = __props;
+        const emit2 = __emit;
+        const modifierKeys = ["Shift", "Control", "Alt", "Meta"];
+        const modifierLabels = {
+          Shift: "Shift",
+          Control: "Ctrl",
+          Alt: "Alt",
+          Meta: "Win"
+          // Windows键
+        };
+        const normalizeModifier = (key2) => {
+          switch (key2.toUpperCase()) {
+            case "CMD":
+            case "COMMAND":
+            case "WIN":
+            case "WINDOWS":
+              return "Meta";
+            case "CTRL":
+              return "Control";
+            case "OPTION":
+              return "Alt";
+            default:
+              return key2;
+          }
+        };
+        const pressedModifiers = ref(/* @__PURE__ */ new Set());
+        const finalModifiers = ref(/* @__PURE__ */ new Set());
+        const mainKey = ref(null);
+        const isRecording = ref(false);
+        const isFinalized = ref(false);
+        const display = computed(() => {
+          const activeSet = isFinalized.value ? finalModifiers.value : pressedModifiers.value;
+          const modifiers = modifierKeys.map((key2) => {
+            const isActive = activeSet.has(key2);
+            const color = isActive ? "#1890ff" : "#999";
+            return `<span style="color: ${color}; font-weight: bold;">${modifierLabels[key2]}</span>`;
+          }).join("  ");
+          const keyColor = isFinalized.value && mainKey.value ? "#1890ff" : "#000";
+          const keyPart = mainKey.value ? `<span style="margin-left: 6px; color: ${keyColor}; font-weight: bold;">${mainKey.value.toUpperCase()}</span>` : "";
+          return modifiers + (mainKey.value ? "  " : "") + keyPart;
+        });
+        const shortcutString = computed(() => {
+          if (!isFinalized.value || !mainKey.value || finalModifiers.value.size === 0) {
+            return "";
+          }
+          return [...finalModifiers.value].join("+") + "+" + mainKey.value.toUpperCase();
+        });
+        watch(shortcutString, (val) => {
+          emit2("update:modelValue", val);
+        });
+        const startRecording = () => {
+          isRecording.value = true;
+          isFinalized.value = false;
+          mainKey.value = null;
+          pressedModifiers.value.clear();
+          finalModifiers.value.clear();
+        };
+        const finalize = () => {
+          if (pressedModifiers.value.size === 0 || !mainKey.value) {
+            startRecording();
+            return;
+          }
+          isFinalized.value = true;
+          finalModifiers.value = new Set(pressedModifiers.value);
+        };
+        const clearAll = () => {
+          isRecording.value = false;
+          isFinalized.value = false;
+          pressedModifiers.value.clear();
+          finalModifiers.value.clear();
+          mainKey.value = null;
+          emit2("update:modelValue", "");
+        };
+        const onKeyDown2 = (e2) => {
+          var _a2;
+          if (!isRecording.value || isFinalized.value) return;
+          if (modifierKeys.includes(e2.key)) {
+            pressedModifiers.value.add(e2.key);
+          } else if (!["Tab", "Escape"].includes(e2.key)) {
+            mainKey.value = e2.key.length === 1 ? e2.key.toUpperCase() : e2.key;
+            finalize();
+            (_a2 = document.activeElement) == null ? void 0 : _a2.blur();
+          }
+          e2.preventDefault();
+        };
+        const onKeyUp = (e2) => {
+          if (!isRecording.value || isFinalized.value) return;
+          if (modifierKeys.includes(e2.key)) {
+            pressedModifiers.value.delete(e2.key);
+          }
+        };
+        onMounted(() => {
+          window.addEventListener("keydown", onKeyDown2);
+          window.addEventListener("keyup", onKeyUp);
+        });
+        onBeforeUnmount(() => {
+          window.removeEventListener("keydown", onKeyDown2);
+          window.removeEventListener("keyup", onKeyUp);
+        });
+        watch(() => props2.modelValue, (val) => {
+          if (!val) {
+            clearAll();
+            return;
+          }
+          const parts = val.split("+").map(normalizeModifier);
+          const mods = parts.filter((p2) => modifierKeys.includes(p2));
+          const key2 = parts.find((p2) => !modifierKeys.includes(p2));
+          if (mods.length && key2) {
+            finalModifiers.value = new Set(mods);
+            mainKey.value = key2;
+            isFinalized.value = true;
+          } else {
+            clearAll();
+          }
+        }, { immediate: true });
+        return (_ctx, _cache) => {
+          const _component_a_input = resolveComponent("a-input");
+          return openBlock(), createBlock(_component_a_input, {
+            style: { "width": "160px" },
+            readonly: "",
+            value: "",
+            onFocus: startRecording,
+            onMousedown: _cache[0] || (_cache[0] = withModifiers(() => {
+            }, ["stop"])),
+            onBlur: _cache[1] || (_cache[1] = ($event) => isRecording.value = false)
+          }, {
+            suffix: withCtx(() => [
               createBaseVNode("span", { innerHTML: display.value }, null, 8, _hoisted_1$4)
             ]),
             _: 1
@@ -108503,6 +108680,140 @@ summary tabindex target title type usemap value width wmode wrap`;
       const key2 = keyMap2[keycode] ?? "Unknown";
       return [...mods, key2].join("+");
     }
+    function formatHotkeyStringWin(keycode, modifiers) {
+      const keyMap2 = {
+        65: "A",
+        66: "B",
+        67: "C",
+        68: "D",
+        69: "E",
+        70: "F",
+        71: "G",
+        72: "H",
+        73: "I",
+        74: "J",
+        75: "K",
+        76: "L",
+        77: "M",
+        78: "N",
+        79: "O",
+        80: "P",
+        81: "Q",
+        82: "R",
+        83: "S",
+        84: "T",
+        85: "U",
+        86: "V",
+        87: "W",
+        88: "X",
+        89: "Y",
+        90: "Z",
+        13: "Enter",
+        27: "Esc",
+        32: "Space",
+        112: "F1",
+        113: "F2",
+        114: "F3",
+        115: "F4",
+        116: "F5",
+        117: "F6",
+        118: "F7",
+        119: "F8",
+        120: "F9",
+        121: "F10",
+        122: "F11",
+        123: "F12",
+        37: "Left",
+        38: "Up",
+        39: "Right",
+        40: "Down"
+      };
+      const mods = [];
+      if (modifiers & 1) mods.push("Alt");
+      if (modifiers & 2) mods.push("Ctrl");
+      if (modifiers & 4) mods.push("Shift");
+      if (modifiers & 8) mods.push("Win");
+      const key2 = keyMap2[keycode] ?? `KeyCode(${keycode})`;
+      return [...mods, key2].join("+");
+    }
+    function parseShortcutToHotkeyWin(shortcut) {
+      const parts = shortcut.toUpperCase().split("+");
+      let keyPart = "";
+      let modifier = 0;
+      for (const part of parts) {
+        switch (part) {
+          case "ALT":
+            modifier |= 1;
+            break;
+          case "CTRL":
+          case "CONTROL":
+            modifier |= 2;
+            break;
+          case "SHIFT":
+            modifier |= 4;
+            break;
+          case "WIN":
+          case "CMD":
+          case "META":
+            modifier |= 8;
+            break;
+          default:
+            keyPart = part;
+        }
+      }
+      const key2 = keyWinMap[keyPart] ?? parseInt(keyPart);
+      return {
+        key: key2,
+        modifier
+      };
+    }
+    const keyWinMap = {
+      A: 65,
+      B: 66,
+      C: 67,
+      D: 68,
+      E: 69,
+      F: 70,
+      G: 71,
+      H: 72,
+      I: 73,
+      J: 74,
+      K: 75,
+      L: 76,
+      M: 77,
+      N: 78,
+      O: 79,
+      P: 80,
+      Q: 81,
+      R: 82,
+      S: 83,
+      T: 84,
+      U: 85,
+      V: 86,
+      W: 87,
+      X: 88,
+      Y: 89,
+      Z: 90,
+      ENTER: 13,
+      ESC: 27,
+      SPACE: 32,
+      F1: 112,
+      F2: 113,
+      F3: 114,
+      F4: 115,
+      F5: 116,
+      F6: 117,
+      F7: 118,
+      F8: 119,
+      F9: 120,
+      F10: 121,
+      F11: 122,
+      F12: 123,
+      UP: 38,
+      DOWN: 40,
+      LEFT: 37,
+      RIGHT: 39
+    };
     class Hotkey {
       /** Creates a new Hotkey instance. */
       constructor($$source = {}) {
@@ -108551,6 +108862,7 @@ summary tabindex target title type usemap value width wmode wrap`;
     const _sfc_main$3 = /* @__PURE__ */ defineComponent({
       __name: "Index",
       setup(__props) {
+        const ismacos = ref(false);
         const OpenShortcut = ref("");
         const OpenSetting = ref("");
         const isInitialized = ref(false);
@@ -108561,7 +108873,11 @@ summary tabindex target title type usemap value width wmode wrap`;
             if (!isInitialized.value) return;
             if (!newShortcut || newShortcut === lastSaved) return;
             try {
-              await SendHanld(1, newShortcut);
+              if (ismacos.value) {
+                await SendHanld(1, newShortcut);
+              } else {
+                await SendHanldWin(1, newShortcut);
+              }
             } catch (e2) {
               api$1.success("快捷键保存失败: " + e2.message);
             }
@@ -108574,7 +108890,11 @@ summary tabindex target title type usemap value width wmode wrap`;
             if (!isInitialized.value) return;
             if (!newShortcut || newShortcut === lastSaved) return;
             try {
-              await SendHanld(2, newShortcut);
+              if (ismacos.value) {
+                await SendHanld(2, newShortcut);
+              } else {
+                await SendHanldWin(2, newShortcut);
+              }
             } catch (e2) {
               api$1.success("快捷键保存失败: " + e2.message);
             }
@@ -108594,45 +108914,74 @@ summary tabindex target title type usemap value width wmode wrap`;
             api$1.success("快捷键保存失败: " + e2.message);
           }
         };
+        const SendHanldWin = async (item, newShortcut) => {
+          try {
+            const parsed = parseShortcutToHotkeyWin(newShortcut);
+            if (!parsed) {
+              console.error("❌ 快捷键格式错误:", newShortcut);
+              return;
+            }
+            api$1.success("快捷键已保存");
+            await UpHotkey(item, parsed.key, parsed.modifier);
+          } catch (e2) {
+            api$1.success("快捷键保存失败: " + e2.message);
+          }
+        };
         const hotkeyentry = ref([]);
         const Gethotkey = async () => {
           hotkeyentry.value = await GetHotkeys();
           if (hotkeyentry.value && hotkeyentry.value.length > 0) {
-            OpenShortcut.value = formatHotkeyStringmac(hotkeyentry.value[0].keycode, hotkeyentry.value[0].modifiers);
-            OpenSetting.value = formatHotkeyStringmac(hotkeyentry.value[1].keycode, hotkeyentry.value[1].modifiers);
+            if (ismacos.value) {
+              OpenShortcut.value = formatHotkeyStringmac(hotkeyentry.value[0].keycode, hotkeyentry.value[0].modifiers);
+              OpenSetting.value = formatHotkeyStringmac(hotkeyentry.value[1].keycode, hotkeyentry.value[1].modifiers);
+            } else {
+              OpenShortcut.value = formatHotkeyStringWin(hotkeyentry.value[0].keycode, hotkeyentry.value[0].modifiers);
+              OpenSetting.value = formatHotkeyStringWin(hotkeyentry.value[1].keycode, hotkeyentry.value[1].modifiers);
+            }
             await nextTick();
             isInitialized.value = true;
           }
         };
         onMounted(async () => {
+          ismacos.value = IsmacOS();
           Gethotkey();
         });
         return (_ctx, _cache) => {
           return openBlock(), createElementBlock(Fragment, null, [
-            _cache[2] || (_cache[2] = createBaseVNode("h2", { class: "text-lg font-bold text-gray-800 dark:text-white" }, "快捷键", -1)),
+            _cache[4] || (_cache[4] = createBaseVNode("h2", { class: "text-lg font-bold text-gray-800 dark:text-white" }, "快捷键", -1)),
             createBaseVNode("div", null, [
               createBaseVNode("div", _hoisted_1$3, [
-                createVNode(_sfc_main$8, {
+                createVNode(_sfc_main$9, {
                   label: "打开主窗口",
                   subLabel: "按下组合键，必须包含至少一个修饰键和一个主键"
                 }, {
                   default: withCtx(() => [
-                    createVNode(_sfc_main$4, {
+                    ismacos.value ? (openBlock(), createBlock(_sfc_main$5, {
+                      key: 0,
                       modelValue: OpenShortcut.value,
                       "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => OpenShortcut.value = $event)
-                    }, null, 8, ["modelValue"])
+                    }, null, 8, ["modelValue"])) : (openBlock(), createBlock(_sfc_main$4, {
+                      key: 1,
+                      modelValue: OpenShortcut.value,
+                      "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => OpenShortcut.value = $event)
+                    }, null, 8, ["modelValue"]))
                   ]),
                   _: 1
                 }),
-                createVNode(_sfc_main$8, {
+                createVNode(_sfc_main$9, {
                   label: "打开偏好设置窗口",
                   subLabel: ""
                 }, {
                   default: withCtx(() => [
-                    createVNode(_sfc_main$4, {
+                    ismacos.value ? (openBlock(), createBlock(_sfc_main$5, {
+                      key: 0,
                       modelValue: OpenSetting.value,
-                      "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => OpenSetting.value = $event)
-                    }, null, 8, ["modelValue"])
+                      "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => OpenSetting.value = $event)
+                    }, null, 8, ["modelValue"])) : (openBlock(), createBlock(_sfc_main$4, {
+                      key: 1,
+                      modelValue: OpenSetting.value,
+                      "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => OpenSetting.value = $event)
+                    }, null, 8, ["modelValue"]))
                   ]),
                   _: 1
                 })
@@ -108642,19 +108991,19 @@ summary tabindex target title type usemap value width wmode wrap`;
         };
       }
     });
-    const Shortcut = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-524ad25f"]]);
+    const Shortcut = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-d5225d37"]]);
     const _hoisted_1$2 = { class: "w-full h-full flex items-center justify-center" };
-    const _hoisted_2$1 = { class: "w-[420px] rounded-2xl bg-neutral-50 dark:bg-gray-800 px-8 py-10 text-center shadow-sm border border-neutral-100 dark:border-gray-700" };
-    const _hoisted_3$1 = {
+    const _hoisted_2$2 = { class: "w-[420px] rounded-2xl bg-neutral-50 dark:bg-gray-800 px-8 py-10 text-center shadow-sm border border-neutral-100 dark:border-gray-700" };
+    const _hoisted_3$2 = {
       key: 0,
       class: "flex justify-center mb-4"
     };
-    const _hoisted_4$1 = {
+    const _hoisted_4$2 = {
       key: 0,
       class: "text-2xl font-semibold text-neutral-800 mb-1 dark:text-white",
       style: { "transition-delay": "80ms" }
     };
-    const _hoisted_5 = {
+    const _hoisted_5$1 = {
       key: 0,
       class: "text-sm text-neutral-500 mb-6 dark:text-neutral-300",
       style: { "transition-delay": "120ms" }
@@ -108685,10 +109034,10 @@ summary tabindex target title type usemap value width wmode wrap`;
         });
         return (_ctx, _cache) => {
           return openBlock(), createElementBlock("div", _hoisted_1$2, [
-            createBaseVNode("div", _hoisted_2$1, [
+            createBaseVNode("div", _hoisted_2$2, [
               createVNode(Transition, { name: "fade-up" }, {
                 default: withCtx(() => [
-                  show.value ? (openBlock(), createElementBlock("div", _hoisted_3$1, _cache[0] || (_cache[0] = [
+                  show.value ? (openBlock(), createElementBlock("div", _hoisted_3$2, _cache[0] || (_cache[0] = [
                     createBaseVNode("div", { class: "w-10 h-10 rounded-full bg-orange-100 text-orange-500 flex items-center justify-center text-lg" }, " • ", -1)
                   ]))) : createCommentVNode("", true)
                 ]),
@@ -108696,13 +109045,13 @@ summary tabindex target title type usemap value width wmode wrap`;
               }),
               createVNode(Transition, { name: "fade-up" }, {
                 default: withCtx(() => [
-                  show.value ? (openBlock(), createElementBlock("h1", _hoisted_4$1, " SuiDemo ")) : createCommentVNode("", true)
+                  show.value ? (openBlock(), createElementBlock("h1", _hoisted_4$2, " SuiDemo ")) : createCommentVNode("", true)
                 ]),
                 _: 1
               }),
               createVNode(Transition, { name: "fade-up" }, {
                 default: withCtx(() => [
-                  show.value ? (openBlock(), createElementBlock("p", _hoisted_5, " Wails3 · 桌面工具 ")) : createCommentVNode("", true)
+                  show.value ? (openBlock(), createElementBlock("p", _hoisted_5$1, " Wails3 · 桌面工具 ")) : createCommentVNode("", true)
                 ]),
                 _: 1
               }),
@@ -108742,9 +109091,9 @@ summary tabindex target title type usemap value width wmode wrap`;
     });
     const About = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-8cffef11"]]);
     const _hoisted_1$1 = { class: "h-screen w-screen flex flex-col text-black dark:text-white" };
-    const _hoisted_2 = { class: "flex flex-1 overflow-hidden" };
-    const _hoisted_3 = ["onClick"];
-    const _hoisted_4 = { class: "flex-1 p-4 overflow-y-auto max-h-screen scroll-container bg-gray-50 dark:bg-gray-950" };
+    const _hoisted_2$1 = { class: "flex flex-1 overflow-hidden" };
+    const _hoisted_3$1 = ["onClick"];
+    const _hoisted_4$1 = { class: "flex-1 p-4 overflow-y-auto max-h-screen scroll-container bg-gray-50 dark:bg-gray-950" };
     const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       __name: "Index",
       setup(__props) {
@@ -108786,10 +109135,9 @@ summary tabindex target title type usemap value width wmode wrap`;
         });
         return (_ctx, _cache) => {
           return openBlock(), createElementBlock("div", _hoisted_1$1, [
-            createBaseVNode("div", _hoisted_2, [
+            createBaseVNode("div", _hoisted_2$1, [
               createBaseVNode("div", {
-                class: "w-44 bg-gray-100/20 font-bold text-base p-3 space-y-2 dark:bg-gray-800",
-                style: normalizeStyle$1(isosname.value ? "padding-top:40px" : "")
+                class: normalizeClass(["w-44 font-bold text-base p-3 space-y-2 dark:bg-gray-800", isosname.value ? "pt-10 bg-gray-100/20" : "bg-gray-100"])
               }, [
                 (openBlock(true), createElementBlock(Fragment, null, renderList(requests.value, (item, index2) => {
                   return openBlock(), createElementBlock("div", {
@@ -108801,10 +109149,10 @@ summary tabindex target title type usemap value width wmode wrap`;
                       style: normalizeStyle$1(["margin-right: 10px;vertical-align: middle;", item.id === "shortcut" ? "font-size: 19px" : "font-size: 18px"])
                     }, null, 8, ["style"])),
                     createBaseVNode("span", null, toDisplayString$1(item.label), 1)
-                  ], 10, _hoisted_3);
+                  ], 10, _hoisted_3$1);
                 }), 128))
-              ], 4),
-              createBaseVNode("div", _hoisted_4, [
+              ], 2),
+              createBaseVNode("div", _hoisted_4$1, [
                 (openBlock(), createBlock(resolveDynamicComponent(getComponent2.value)))
               ])
             ])
@@ -108812,8 +109160,12 @@ summary tabindex target title type usemap value width wmode wrap`;
         };
       }
     });
-    const MainPage = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-83ec0437"]]);
-    const _hoisted_1 = { class: "flex pt-4 h-screen w-screen h-full w-full bg-gray-100/90 drag-region dark:bg-gray-900" };
+    const MainPage = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-2cff296a"]]);
+    const _hoisted_1 = { class: "fixed top-2 right-4 space-y-1 font-sans select-none" };
+    const _hoisted_2 = ["onClick"];
+    const _hoisted_3 = ["title"];
+    const _hoisted_4 = { class: "flex h-10 w-8" };
+    const _hoisted_5 = ["onClick"];
     const _sfc_main = /* @__PURE__ */ defineComponent({
       __name: "Index",
       setup(__props) {
@@ -108821,27 +109173,75 @@ summary tabindex target title type usemap value width wmode wrap`;
         bc.onmessage = (e2) => {
           applyTheme(e2.data);
         };
+        const cards = [
+          {
+            id: 1,
+            type: "life",
+            title: "厨房杂乱，请提供五步整理计划"
+          },
+          {
+            id: 2,
+            type: "device",
+            title: "我的存储空间不足，请逐步指导我如何备份照片"
+          },
+          {
+            id: 3,
+            type: "security",
+            title: "我希望增强账户的安全，请协助我设置密码管理器"
+          }
+        ];
+        const onCardClick = (card) => {
+          console.log("点击卡片", card);
+        };
+        const onCardClose = (id) => {
+          const index2 = cards.findIndex((c2) => c2.id === id);
+          if (index2 !== -1) cards.splice(index2, 1);
+        };
         return (_ctx, _cache) => {
-          return openBlock(), createElementBlock("div", _hoisted_1, _cache[0] || (_cache[0] = [
-            createBaseVNode("div", { class: "pt-4 pl-4 pr-4 dark:text-white" }, [
-              createBaseVNode("div", null, [
-                createBaseVNode("h2", null, "Second"),
-                createBaseVNode("p", null, "Click on the Wails logo to learn more")
-              ])
-            ], -1)
-          ]));
+          return openBlock(), createElementBlock("div", _hoisted_1, [
+            createVNode(TransitionGroup, {
+              name: "card",
+              tag: "div"
+            }, {
+              default: withCtx(() => [
+                (openBlock(), createElementBlock(Fragment, null, renderList(cards, (card) => {
+                  return createBaseVNode("div", {
+                    key: card.id,
+                    onClick: ($event) => onCardClick(card),
+                    class: "group flex w-[304px] gap-3 rounded-2xl bg-white/80 backdrop-blur-md px-1 py-1 shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition"
+                  }, [
+                    createBaseVNode("div", {
+                      class: "flex-1 text-sm py-1 text-neutral-900 line-clamp-2 break-words",
+                      title: card.title
+                    }, toDisplayString$1(card.title), 9, _hoisted_3),
+                    createBaseVNode("div", _hoisted_4, [
+                      createBaseVNode("button", {
+                        onClick: withModifiers(($event) => onCardClose(card.id), ["stop"]),
+                        class: "opacity-0 group-hover:opacity-100 text-neutral-400 transition hover:text-neutral-600"
+                      }, " ✓ ", 8, _hoisted_5)
+                    ])
+                  ], 8, _hoisted_2);
+                }), 64))
+              ]),
+              _: 1
+            })
+          ]);
         };
       }
     });
+    const SecondPage = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-a6dbaf2e"]]);
     const routes = [
       { path: "/", component: MainPage },
-      { path: "/second", component: _sfc_main }
+      { path: "/second", component: SecondPage }
     ];
     const router = createRouter({
       history: createWebHashHistory(),
       // Use createWebHashHistory for hash-based routing
       routes
     });
+    function GetLanguage() {
+      return ByID(3324446564);
+    }
     initTheme();
     if (window.location.hash === "" || window.location.hash === "#/") {
       router.replace("/second");
@@ -108849,6 +109249,10 @@ summary tabindex target title type usemap value width wmode wrap`;
     async function bootstrap() {
       await setupI18n("zh");
       createApp(App).use(Antd).use(router).use(i18n).mount("#app");
+      router.isReady().then(async () => {
+        const lang = await GetLanguage();
+        await setupI18n(lang || "zh");
+      });
     }
     bootstrap();
   }

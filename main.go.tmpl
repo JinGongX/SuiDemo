@@ -17,6 +17,9 @@ import (
 //go:embed all:frontend/dist
 var assets embed.FS
 
+//go:embed frontend/src/locales/*.json
+var I18nFS embed.FS
+
 // main function serves as the application's entry point. It initializes the application, creates a window,
 // and starts a goroutine that emits a time-based event every second. It subsequently runs the application and
 // logs any error that might occur.
@@ -41,6 +44,7 @@ func main() {
 			application.NewService(appservice),
 			application.NewService(services.NewHotkeyService(suidb)),
 			application.NewService(services.NewSystemInfo()),
+			application.NewService(services.NewAppConfigService(suidb)),
 		},
 		Assets: application.AssetOptions{
 			Handler: application.AssetFileServerFS(assets),
@@ -50,7 +54,7 @@ func main() {
 		},
 	})
 
-	appservice.SetApp(app)
+	appservice.SetApp(app, I18nFS, suidb)
 	// Register hotkeys from the database and associate them with the second window.
 	services.LoadAndRegisterHotkeysFrom(suidb, services.HotkeyShowSecondWindow)
 

@@ -1,4 +1,10 @@
 {
+  "appmenus":{
+    "second": "第二窗口",
+    "version": "版本: 0.3.0",
+    "quit": "退出應用",
+    "preferences": "偏好設定"
+  },
   "menus": {
     "about": "關於",
     "backup": "數據備份",

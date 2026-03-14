@@ -69,25 +69,36 @@ func Migrate(db *sql.DB) error {
 	    description TEXT,
 		target TEXT 
 	);
+
+	CREATE TABLE IF NOT EXISTS  appconfig (
+		id INTEGER PRIMARY KEY AUTOINCREMENT,
+		key TEXT UNIQUE,
+		type TEXT,
+		value TEXT,
+		description TEXT,
+		state INTEGER DEFAULT 0
+	);
 	`)
 	if err != nil {
 		return err
 	}
-	// 检查是否已存在数据
-	row := db.QueryRow(`SELECT COUNT(*) FROM hotkeys`)
-	var count int
-	err = row.Scan(&count)
+	//  初始化默认数据
+	err = InitDefaultData(db)
 	if err != nil {
 		return err
 	}
-
-	if count == 0 {
-		var sqlhotkeys = OSinithotkeys()
-		_, err = db.Exec(sqlhotkeys)
-		if err != nil {
-			return err
-		}
-	}
 	fmt.Println("✅ 数据库迁移完成")
+	return nil
+}
+
+func InitDefaultData(db *sql.DB) error {
+	// 初始化配置
+	if _, err := db.Exec(OSinitAppConfig()); err != nil {
+		return err
+	}
+	// 初始化热键
+	if _, err := db.Exec(OSinithotkeys()); err != nil {
+		return err
+	}
 	return nil
 }

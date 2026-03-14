@@ -4,6 +4,6 @@
   "author": "",
   "description": "A Wails v3-based desktop application template with i18n, dark mode, and SQLite integration.",
   "helpurl": "",
-  "version": "v0.3.0-alpha",
+  "version": "v0.4.0-alpha",
   "schema": 3
 }
