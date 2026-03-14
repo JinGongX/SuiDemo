@@ -76,7 +76,7 @@ SuiDemo/
 │   │   └── App.vue
 ├── internal/             # Go 后端服务
 ├── platform/             # mac / win 差异
-├── main.go               # 应用入口
+├── main.go.tmpl               # 应用入口
 ├── Taskfile.yml            # Wails 配置文件
 └── go.mod
 ```
@@ -153,7 +153,7 @@ SuiDemo/
 │   │   └── App.vue
 ├── internal/             # Go api code
 ├── platform/             # mac / win difference
-├── main.go                
+├── main.go.tmpl                
 ├── Taskfile.yml            # Wails config
 └── go.mod
 ```
