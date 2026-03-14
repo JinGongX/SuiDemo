@@ -1,8 +1,8 @@
 <p align="center"><h1 align="center">SuiDemo</h1></p>
 
 <p align="center">
-<a href="https://github.com/JinGongX/SuiDemo?tab=Apache-2.0-1-ov-file">
-<img alt="GitHub" src="https://img.shields.io/badge/license-Apache_2.0-blue"/>
+<a href="https://github.com/JinGongX/SuiDemo?tab=MIT-1-ov-file">
+<img alt="GitHub" src="https://img.shields.io/badge/MIT-blue"/>
 </a>
 <a href="https://github.com/JinGongX/SuiDemo/releases">
 <img alt="GitHub tag" src="https://img.shields.io/badge/version-v0.3.0--alpha-orange">
