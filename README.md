@@ -82,7 +82,7 @@ SuiDemo/
 ```
 ## 📜 许可证
 
-Apache-2.0 License
+MIT License
 
 ## 📸 界面展示
 
@@ -164,7 +164,7 @@ SuiDemo/
 
 ## 📜 License
 
-Apache-2.0 License
+MIT License
 
 ## 🙌 Acknowledgements
 
