@@ -86,8 +86,19 @@ MIT License
 
 ## 📸 界面展示
 
-![输入图片说明](effect/an.jpg)
-![输入图片说明](effect/white.jpg)
+
+<p align="center">
+  <img src="effect/zh/dashboard_zh_not.png" width="340" />
+  <img src="effect/zh/settings_zh.png" width="340" />
+</p>
+<p align="center">
+  <img src="effect/zh/about_zh.png" width="340" />
+  <img src="effect/zh/about_black_zh.png" width="340" />
+</p>
+<p align="center">
+  <img src="effect/zh/dashboard_black_zh.png" width="320" />
+  <img src="effect/zh/settings_black_zh.png" width="320" />
+</p>
 
 ## 🙌 鸣谢
 
