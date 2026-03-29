@@ -86,18 +86,17 @@ MIT License
 
 ## 📸 界面展示
 
-
 <p align="center">
   <img src="effect/zh/dashboard_zh_not.png" width="340" />
+  <img src="effect/zh/dashboard_black_zh.png" width="340" />
+</p>
+<p align="center">
   <img src="effect/zh/settings_zh.png" width="340" />
+  <img src="effect/zh/settings_black_zh.png" width="340" />
 </p>
 <p align="center">
-  <img src="effect/zh/about_zh.png" width="340" />
+  <img src="effect/zh/about_zh.png" width="340" />  
   <img src="effect/zh/about_black_zh.png" width="340" />
-</p>
-<p align="center">
-  <img src="effect/zh/dashboard_black_zh.png" width="320" />
-  <img src="effect/zh/settings_black_zh.png" width="320" />
 </p>
 
 ## 🙌 鸣谢
@@ -170,8 +169,18 @@ SuiDemo/
 ```
 ## 📸 Screenshots
 
-![输入图片说明](effect/Black_en.jpg)
-![输入图片说明](effect/white_en.jpg)
+<p align="center">
+  <img src="effect/en/dashboard_zh_not.png" width="340" />
+  <img src="effect/en/dashboard_black_zh.png" width="340" />
+</p>
+<p align="center">
+  <img src="effect/en/settings_zh.png" width="340" />
+  <img src="effect/en/settings_black_zh.png" width="340" />
+</p>
+<p align="center">
+  <img src="effect/en/about_zh.png" width="340" />  
+  <img src="effect/en/about_black_zh.png" width="340" />
+</p>
 
 ## 📜 License
 
