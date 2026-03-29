@@ -18,18 +18,7 @@
           v-if="show"
           class="flex justify-center mb-4"
         >
-          <div
-            class="
-              w-10 h-10
-              rounded-full
-              bg-orange-100
-              text-orange-500
-              flex items-center justify-center
-              text-lg 
-            "
-          >
-            •
-          </div>
+          <img src="/system/about.svg" class="w-28 h-28" />
         </div>
       </transition>
       <!-- 标题 -->
@@ -49,7 +38,7 @@
           class="text-sm text-neutral-500 mb-6 dark:text-neutral-300"
           style="transition-delay: 120ms"
         >
-          Wails3 · 桌面工具
+          Wails3 · Template
         </p>
       </transition>
       <!-- 主文案 -->
@@ -62,10 +51,8 @@
           <p></p>
           <p></p>
           <div class="h-2"></div>
-          <p>只是在合适的时候，</p>
-          <p class="font-medium">
-            让复杂的事物变得简单一些。
-          </p>
+          <p>{{ $t('components.about.description_p1') }}</p>
+          <p>{{ $t('components.about.description_p2') }}</p>
         </div>
       </transition>
       <!-- 分割线 -->
@@ -85,7 +72,7 @@
           class="text-xs text-neutral-400 space-y-1 dark:text-white"
           style="transition-delay: 300ms"
         >
-          <p>Designed & Built by Jin Gong</p>
+          <p>Designed & Built by {{ $t('components.about.author') }}</p>
           <p>© 2026 Light Prompt</p>
         </div>
       </transition>

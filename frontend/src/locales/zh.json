@@ -10,10 +10,12 @@
     "quit": "退出应用"
   },
   "menus":{
+    "dashboard":"仪表盘",
     "general":"通用设置",
     "shortcut":"快捷键",
     "about":"关于",
-    "second":"第二窗口"
+    "second":"第二窗口",
+    "setting":"设置"
   },
   "components":{
     "home":{},
@@ -22,7 +24,8 @@
         "power":"权限设置",
         "application":"应用设置",
         "exterior":"外观设置",
-        "update":"应用更新"
+        "update":"应用更新",
+        "shortcut":"快捷键设置"
       },
       "label":{
         "assistant_access":"辅助功能访问权限",
@@ -31,11 +34,14 @@
         "language":"界面语言",
         "theme":"主题模式",
         "automatic_up":"自动检查更新",
-        "next_up":"下次启动自动检查更新"
+        "next_up":"下次启动自动检查更新",
+        "open_second":"打开第二窗口",
+        "open_setting":"打开管理窗口"
       },
       "subLabel":{
         "sb_assistant_access":"需要无障碍访问权限来操作剪切板内容",
-        "sb_disk_access":"需要完全磁盘访问权限来实现文件预览"
+        "sb_disk_access":"需要完全磁盘访问权限来实现文件预览",
+        "ht_shortcut":"按下组合键，必须包含至少一个修饰键和一个主键"
       },
       "buttons":{
         "authorized":"已授权",
@@ -47,6 +53,28 @@
         "opt_light":"亮色模式",
         "opt_dark":"暗色模式"
       }
-    }
+    },
+    "about": {
+      "version": "版本",
+      "author": "Jin Gong",
+      "description_p1": "只是在合适的时候，",
+      "description_p2": "做一些合适的事。"
+     },
+     "dashboard":{
+      "title":{
+        "upcoming_task":"即将进行的任务"
+      },
+      "label":{
+        "total_tasks":"总任务数",
+        "completed_tasks":"已完成任务",
+        "pending_tasks":"待办任务",
+        "no_tasks":"暂无任务"
+      },
+        "buttons":{
+          "newtask":"新建任务",
+          "upcoming_all":"全部",
+          "upcoming_priority":"优先"
+        }
+     }
   }
 }

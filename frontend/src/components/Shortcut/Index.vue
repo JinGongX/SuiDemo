@@ -115,14 +115,14 @@ const Gethotkey = async () => {
 </script>
 
 <template> 
-  <h2 class="text-lg font-bold text-gray-800 dark:text-white" >快捷键</h2>
+  <h2 class="text-lg font-bold text-gray-800 dark:text-white" >{{ $t('components.general.title.shortcut') }}</h2>
   <div> 
        <div class="bg-white rounded-lg shadow divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-         <ListItem label="打开主窗口" subLabel="按下组合键，必须包含至少一个修饰键和一个主键">
+         <ListItem :label="$t('components.general.label.open_second')" :subLabel="$t('components.general.subLabel.ht_shortcut')">
              <ShortcutInput v-if="ismacos" v-model:modelValue="OpenShortcut"  />
             <WinShortcutInput v-else v-model:modelValue="OpenShortcut" />
           </ListItem>
-          <ListItem label="打开偏好设置窗口" subLabel="">
+          <ListItem :label="$t('components.general.label.open_setting')" subLabel="">
               <ShortcutInput v-if="ismacos" v-model:modelValue="OpenSetting" />
              <WinShortcutInput v-else v-model:modelValue="OpenSetting" />
           </ListItem> 

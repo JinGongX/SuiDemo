@@ -12,7 +12,9 @@
     "history": "歷史記錄",
     "remote": "遠程共享",
     "shortcut": "快速鍵",
-    "second": "第二窗口"
+    "second": "第二窗口",
+    "setting": "設置",
+    "dashboard": "儀表盤"
   },
   "app": {
     "login": "登入",
@@ -31,11 +33,14 @@
         "language": "界面語言",
         "next_up": "下次啟動自動檢查更新",
         "startup": "登錄時啟動",
-        "theme": "主題模式"
+        "theme": "主題模式",
+        "open_second": "打開第二窗口",
+        "open_setting": "打開管理窗口"
       },
       "subLabel": {
         "sb_assistant_access": "需要無障礙訪問權限來操作剪切板內容",
-        "sb_disk_access": "需要完全磁盤訪問權限來實現文件預覽"
+        "sb_disk_access": "需要完全磁盤訪問權限來實現文件預覽",
+        "ht_shortcut": "按下組合鍵，必須包含至少一個修飾鍵和一個主鍵"
       },
       "title": {
         "application": "應用設置",
@@ -49,6 +54,28 @@
         "opt_dark": "暗色模式",
         "opt_light": "亮色模式"
       }
-    }
+    },
+    "about": {
+      "version": "版本",
+      "author": "Jin Gong",
+      "description_p1": "只是在合適的時候，",
+      "description_p2": "做一些合適的事。"
+     },
+     "dashboard":{
+      "title":{
+           "upcoming_task": "即將到來的任務"
+      },
+      "label":{
+        "total_tasks":"總任務數",
+        "completed_tasks":"已完成任務",
+        "pending_tasks":"待辦任務",
+        "no_tasks":"暫無任務"
+      },
+        "buttons":{
+          "newtask":"新建任務",
+          "upcoming_all":"全部",
+          "upcoming_priority":"優先"
+        }
+     }
   }
 }

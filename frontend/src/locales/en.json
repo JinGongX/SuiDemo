@@ -13,7 +13,9 @@
     "about": "About",
     "general": "General",
     "shortcut": "Shortcut key",
-    "second": "Second win"
+    "second": "Second win",
+    "setting": "Settings",
+    "dashboard": "Dashboard"
   },
   "components": {
     "general": {
@@ -21,7 +23,8 @@
         "application": "Apply settings",
         "exterior": "Appearance settings",
         "power": "Permission settings",
-        "update": "Application update"
+        "update": "Application update",
+        "shortcut": "Shortcut key settings"
       },
       "label": {
         "assistant_access": "Accessibility permissions",
@@ -30,11 +33,14 @@
         "language": "Interface language",
         "next_up": "Automatically check for updates next time",
         "startup": "Started when logged in",
-        "theme": "Theme mode"
+        "theme": "Theme mode",
+        "open_second": "Open second window",
+        "open_setting": "Open manages window"
       },
       "subLabel": {
         "sb_assistant_access": "Accessibility permission is required to operate clipboard contents",
-        "sb_disk_access": "Full disk access is required to implement file preview"
+        "sb_disk_access": "Full disk access is required to implement file preview",
+        "ht_shortcut": "Press the combination key, which must contain at least one modifier key and one main key"
       },
       "buttons": {
         "authorized": "Auth",
@@ -46,6 +52,28 @@
         "opt_dark": "Dark",
         "opt_light": "Bright"
       }
-    }
+    },
+    "about": {
+      "version": "Version",
+      "author": "Jin Gong",
+      "description_p1": "Just do the right thing,",
+      "description_p2": "at the right time."
+     },
+     "dashboard":{
+      "title":{
+        "upcoming_task":"Upcoming Tasks"
+      },
+      "label":{
+        "total_tasks":"Total Tasks",
+        "completed_tasks":"Completed Tasks",
+        "pending_tasks":"Pending Tasks",
+        "no_tasks":"No Tasks"
+      },
+        "buttons":{
+          "newtask":"New Task",
+          "upcoming_all":"All",
+          "upcoming_priority":"Priority"
+        }
+     }
   }
 }
