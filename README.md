@@ -170,7 +170,7 @@ SuiDemo/
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="effect/en/dashboard_en.png" width="340" />
+  <img src="effect/en/Dashboard_en.png" width="340" />
   <img src="effect/en/dashboard_black_not_en.png" width="340" />
 </p>
 <p align="center">
