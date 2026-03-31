@@ -194,3 +194,7 @@ MIT License
 
 If you find this useful or have suggestions, feel free to open an issue or reach out.
 Email: ggfugg8@icloud.com
+
+## ⭐ Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=JinGongX/SuiDemo&type=Date)](https://star-history.com/#JinGongX/SuiDemo&Date)
