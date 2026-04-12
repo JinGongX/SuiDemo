@@ -22,7 +22,7 @@
     </aside>
     <!-- 右侧整体 -->
     <div class="flex-1 flex flex-col bg-gray-50 dark:bg-gray-950">
-      <div v-if="iswindows" class="titlebar pt-4 x-4 mb-2  text-white flex items-center justify-between">
+      <div v-if="iswindows" class="titlebar drag-region pt-4 px-4 mb-2  text-white flex items-center justify-between">
         <div class="drag-area">
         </div>
         <div class="window-controls">
@@ -139,6 +139,7 @@ body {
 
 .drag-region {
   -webkit-app-region: drag;
+  --wails-draggable: drag;
 }
 
 .titlebar {
@@ -160,6 +161,9 @@ body {
 
 .window-controls {
   display: flex;
+   /* 👇 按钮不能拖动 */
+  -webkit-app-region: no-drag;
+  --wails-draggable: no-drag;
 }
 
 .window-controls button {
@@ -174,8 +178,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* 👇 按钮不能拖动 */
-  -webkit-app-region: no-drag;
+ 
 }
 
 /* 全局样式（可放在 main.css 或 tailwind.css） */
