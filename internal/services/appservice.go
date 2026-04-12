@@ -35,17 +35,23 @@ func (a *AppService) SetApp(app *application.App, i18nFS embed.FS, suidb *SuiSto
 	a.I18nFS = i18nFS
 	a.Config = NewAppConfigService(suidb)
 
+	isWindows := runtime.GOOS == "windows"
 	// Create a new window with the necessary options.
 	// 'Title' is the title of the window.
 	// 'Mac' options tailor the window when running on macOS.
 	// 'BackgroundColour' is the background colour of the window.
 	// 'URL' is the URL that will be loaded into the webview.
 	mainwindow := app.Window.NewWithOptions(application.WebviewWindowOptions{
-		Title: "main",
+		Title:     "main",
+		Frameless: isWindows,
 		Mac: application.MacWindow{
 			InvisibleTitleBarHeight: 50,
 			Backdrop:                application.MacBackdropTranslucent,
 			TitleBar:                application.MacTitleBarHiddenInset,
+		},
+		Windows: application.WindowsWindow{
+			DisableIcon:                       true,
+			DisableFramelessWindowDecorations: true,
 		},
 		//BackgroundColour: application.NewRGB(27, 38, 54),
 		URL: "/",
