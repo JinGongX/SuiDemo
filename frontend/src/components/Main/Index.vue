@@ -22,7 +22,7 @@
     </aside>
     <!-- 右侧整体 -->
     <div class="flex-1 flex flex-col bg-gray-50 dark:bg-gray-950">
-      <div v-if="iswindows" class="titlebar pt-4 pr-4 pl-4 pb-2  text-white flex items-center justify-between">
+      <div v-if="iswindows" class="titlebar pt-4 x-4 mb-2  text-white flex items-center justify-between">
         <div class="drag-area">
         </div>
         <div class="window-controls">
@@ -39,7 +39,7 @@
         </div>
       </div>
       <!-- 主内容 -->
-      <main class="flex-1 p-4 overflow-y-auto max-h-screen scroll-container  scrollbar-thin">
+      <main class="flex-1  overflow-y-auto max-h-screen scroll-container  scrollbar-thin" :class="iswindows ? 'px-4 pt-px pb-4' : 'p-4'">
         <component :is="getComponent" />
       </main>
     </div>
@@ -142,7 +142,7 @@ body {
 }
 
 .titlebar {
-  height: 30px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,6 +155,7 @@ body {
   padding-left: 12px;
   /* 👇 关键：允许拖动窗口 */
   -webkit-app-region: drag;
+  --wails-draggable: drag;
 }
 
 .window-controls {
@@ -162,7 +163,7 @@ body {
 }
 
 .window-controls button {
-  margin-right: 6px;
+  margin-right: 8px;
   width: 20px;
   height: 20px;
   font-size: 13px;

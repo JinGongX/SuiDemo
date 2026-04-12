@@ -50,8 +50,7 @@ func (a *AppService) SetApp(app *application.App, i18nFS embed.FS, suidb *SuiSto
 			TitleBar:                application.MacTitleBarHiddenInset,
 		},
 		Windows: application.WindowsWindow{
-			DisableIcon:                       true,
-			DisableFramelessWindowDecorations: true,
+			DisableIcon: true,
 		},
 		//BackgroundColour: application.NewRGB(27, 38, 54),
 		URL: "/",
