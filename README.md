@@ -27,7 +27,6 @@
 - 🚀 ```wails3 init -n "Your Project Name" -t https://github.com/JinGongX/SuiDemo``` 直接创建项目
 ---
 
-- ✨ 可配置快捷热键功能
 ## 💻 技术栈
 
 | 部分         | 技术                     |
