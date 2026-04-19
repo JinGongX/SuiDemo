@@ -15,7 +15,8 @@
     "shortcut":"快捷键",
     "about":"关于",
     "second":"第二窗口",
-    "setting":"设置"
+    "setting":"设置",
+    "tags":"标签"
   },
   "components":{
     "home":{},
@@ -75,6 +76,24 @@
           "upcoming_all":"全部",
           "upcoming_priority":"优先"
         }
+     },
+     "tags":{
+      "title":{
+        "manage_tags":"标签"
+      },
+      "label":{
+        "name":"名称",
+        "tagcolor":"标签颜色",
+        "tagicon":"标签图标",
+        "current_preview":"当前预览",
+        "subtags":"子标签"
+      },
+      "buttons":{
+        "newtag":"新增标签",
+        "add_subtag":"添加",
+        "delete_tag":"删除标签",
+        "delete_subtag":"删除子标签"
+      }
      }
   }
 }

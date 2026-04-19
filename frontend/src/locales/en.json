@@ -15,7 +15,8 @@
     "shortcut": "Shortcut key",
     "second": "Second win",
     "setting": "Settings",
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "tags": "Tags"
   },
   "components": {
     "general": {
@@ -74,6 +75,22 @@
           "upcoming_all":"All",
           "upcoming_priority":"Priority"
         }
-     }
+     },
+      "tags":{
+        "title":{
+          "manage_tags":"Tags"
+        },
+        "label":{
+          "name":"Name",
+          "tagcolor":"TAG COLOR",
+          "tagicon":"TAG ICON",
+          "current_preview":"CURRENT PREVIEW",
+          "subtags":"SUB TAGS"
+        },
+        "buttons":{
+          "newtag":"New Tag",
+          "add_subtag":"Add"
+        }
+      }
   }
 }

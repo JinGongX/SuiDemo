@@ -14,7 +14,8 @@
     "shortcut": "快速鍵",
     "second": "第二窗口",
     "setting": "設置",
-    "dashboard": "儀表盤"
+    "dashboard": "儀表盤",
+    "tags": "標籤"
   },
   "app": {
     "login": "登入",
@@ -76,6 +77,21 @@
           "upcoming_all":"全部",
           "upcoming_priority":"優先"
         }
-     }
+     },
+      "tags":{
+        "title":{
+          "manage_tags":"標籤"
+        },
+        "label":{
+          "icon":"標籤圖示",
+          "current_preview":"當前預覽",
+          "tagcolor":"標籤顏色",
+          "subtags":"子標籤"
+        },
+        "buttons":{
+          "newtag":"新建標籤",
+          "add_subtag":"添加"
+        }
+      }
   }
 }

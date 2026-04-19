@@ -15,7 +15,7 @@
           />
         </div>
         <div class="flex items-center gap-3">
-          <button class="relative  text-slate-600 w-[40px]">
+          <button @click="showMsgModal"  class="relative  text-slate-600 w-[40px]">
             <div class="absolute mr-2 top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-gray-200"></div>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
@@ -91,11 +91,17 @@
       </div>
     </div>
   </div>
+  <a-modal v-model:open="openmessage" title="" width="400px" :closable="false" :footer="null">
+   <div class="bg-white h-[360px]  pl-1 pr-1 pb-4 pt-1 ">  
+      <Notifications :handle-cancel="openmessage" @notification-change="handleOk" /> 
+  </div>
+  </a-modal>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref ,computed} from 'vue'
 import { ProfileOutlined,FileDoneOutlined ,ExceptionOutlined  } from '@ant-design/icons-vue'
+import  Notifications from '../Setting/Notifications.vue'
 import { OpenSecondWindow } from  '../../../bindings/changeme/internal/services/appservice'
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
@@ -104,7 +110,7 @@ const profile = ref({
   name: 'Jin Gong',
   avatar: 'https://i.pravatar.cc/150?img=3'
 })
-
+const openmessage = ref<boolean>(false);
 const stats = ref([
   { label: t('components.dashboard.label.total_tasks'), value: 520, tag: '+12%', tagType: 'percentage', icon: ProfileOutlined, iconBg: 'bg-indigo-100', iconColor: 'text-indigo-600' },
   { label: t('components.dashboard.label.pending_tasks'), value: 13, tag: 'Urgent', tagType: 'status', icon: ExceptionOutlined, iconBg: 'bg-orange-100', iconColor: 'text-orange-600' },
@@ -125,7 +131,12 @@ tasks.value = [
     // { id: 3, title: 'Client Presentation Design', time: 'Tomorrow', category: 'WORK', isCompleted: false },
     // { id: 4, title: 'Book Gym Slot', time: '08:00 AM', category: 'PERSONAL', isCompleted: false }, 
   ]
-
+const showMsgModal = () => {
+  openmessage.value = true;
+};
+const handleOk = () => {
+  openmessage.value = false;
+};
 const tagStyles = (type: string) => {
   const base = "text-[10px] px-2 my-1 rounded-lg font-bold "
   if (type === 'percentage') return base + "bg-emerald-50 text-emerald-500"
