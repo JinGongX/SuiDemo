@@ -49,7 +49,7 @@
 <script setup lang="ts">
 import { ref, computed, watch, nextTick, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { SettingOutlined, BulbOutlined, ScheduleOutlined, DashboardOutlined } from '@ant-design/icons-vue';
+import { SettingOutlined, BulbOutlined, ScheduleOutlined, DashboardOutlined, TagsOutlined } from '@ant-design/icons-vue';
 import { OpenSecondWindow } from '../../../bindings/changeme/internal/services/appservice'
 import { getOS, OS_READY } from '../../utils/osinfo'
 import { CloseOutlined, LineOutlined, BorderOutlined, SwitcherOutlined } from '@ant-design/icons-vue'
@@ -77,11 +77,13 @@ type MenuItem =
 const requests = computed<MenuItem[]>(() => [
   { id: 'dashboard', label: t('menus.dashboard'), icon: DashboardOutlined, type: 'component' },
   { id: 'light-tip', label: t('menus.second'), icon: ScheduleOutlined, type: 'window', action: OpenSecondWindow },
+  {id:'tags',label:t('menus.tags'),icon:TagsOutlined,type: 'component'}, 
   { id: 'setting', label: t('menus.setting'), icon: SettingOutlined, type: 'component' },
   { id: 'about', label: t('menus.about'), icon: BulbOutlined, type: 'component' },
 ])
 const selected = ref('dashboard')
 import Dashboard from '../Dashboard/Index.vue'
+import Tags from '../Tags/Index.vue'
 import Setting from '../General/Index.vue'
 import About from '../About/Index.vue'
 import { Window } from '@wailsio/runtime';
@@ -89,6 +91,7 @@ import { Window } from '@wailsio/runtime';
 
 const components = {
   dashboard: Dashboard,
+  tags: Tags,
   setting: Setting,
   about: About
 }
