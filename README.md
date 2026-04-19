@@ -5,7 +5,7 @@
 <img alt="GitHub" src="https://img.shields.io/badge/license-MIT-blue"/>
 </a>
 <a href="https://github.com/JinGongX/SuiDemo/releases">
-<img alt="GitHub tag" src="https://img.shields.io/badge/version-v0.5.1-orange">
+<img alt="GitHub tag" src="https://img.shields.io/badge/version-v0.6.0-orange">
 </a>
  <a href="https://github.com/wailsapp/wails/tags" rel="nofollow">
     <img alt="GitHub tag (latest SemVer pre-release)" src="https://img.shields.io/github/v/tag/wailsapp/wails?include_prereleases&label=wails3&logo=wails"/>
