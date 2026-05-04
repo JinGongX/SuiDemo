@@ -4,7 +4,13 @@
 package platform
 
 import (
+	"bytes"
+	"encoding/base64"
+	"errors"
 	"fmt"
+	"os"
+	"os/exec"
+	"strings"
 	"sync"
 	"syscall"
 
@@ -149,4 +155,93 @@ func HideDock() {
 	// Windows 不需要隐藏 Dock 图标
 	// 但可以在这里添加其他逻辑
 	fmt.Println("Windows 平台不支持隐藏 Dock 图标")
+}
+
+// OCR功能 Windows OCR实现较复杂，暂时使用PowerShell脚本调用Windows OCR API进行识别 （需要Windows 10或更高版本）
+const ocrScript = `
+[Console]::OutputEncoding=[System.Text.Encoding]::UTF8
+$OutputEncoding=[System.Text.Encoding]::UTF8
+Add-Type -AssemblyName System.Runtime.WindowsRuntime
+
+[void][Windows.Graphics.Imaging.BitmapDecoder, Windows.Graphics, ContentType=WindowsRuntime]
+[void][Windows.Graphics.Imaging.SoftwareBitmap, Windows.Graphics, ContentType=WindowsRuntime]
+[void][Windows.Media.Ocr.OcrEngine, Windows.Foundation, ContentType=WindowsRuntime]
+[void][Windows.Media.Ocr.OcrResult, Windows.Foundation, ContentType=WindowsRuntime]
+[void][Windows.Storage.Streams.InMemoryRandomAccessStream, Windows.Storage, ContentType=WindowsRuntime]
+[void][Windows.Storage.Streams.DataWriter, Windows.Storage, ContentType=WindowsRuntime]
+
+function Await($WinRtTask, $ResultType) {
+    $methods = [System.WindowsRuntimeSystemExtensions].GetMethods() | Where-Object {
+        $_.Name -eq 'AsTask' -and $_.IsGenericMethodDefinition -and $_.GetParameters().Count -eq 1
+    }
+    $method = $methods[0].MakeGenericMethod($ResultType)
+    $netTask = $method.Invoke($null, @($WinRtTask))
+    $netTask.Wait(-1) | Out-Null
+    $netTask.Result
+}
+
+# 用 System.IO 直接读字节，不依赖 StorageFile
+$bytes = [System.IO.File]::ReadAllBytes('{{IMAGE_PATH}}')
+
+# 写入 InMemoryRandomAccessStream
+$stream = [Windows.Storage.Streams.InMemoryRandomAccessStream]::new()
+$writer = [Windows.Storage.Streams.DataWriter]::new($stream)
+$writer.WriteBytes($bytes)
+$storeTask = $writer.StoreAsync()
+$storeAsTask = [System.WindowsRuntimeSystemExtensions].GetMethods() | Where-Object {
+    $_.Name -eq 'AsTask' -and $_.IsGenericMethodDefinition -and $_.GetParameters().Count -eq 1
+} | Select-Object -First 1
+$storeNetTask = $storeAsTask.MakeGenericMethod([uint32]).Invoke($null, @($storeTask))
+$storeNetTask.Wait(-1) | Out-Null
+$stream.Seek(0)
+
+$decoder = Await ([Windows.Graphics.Imaging.BitmapDecoder]::CreateAsync($stream)) ([Windows.Graphics.Imaging.BitmapDecoder])
+$bitmap  = Await ($decoder.GetSoftwareBitmapAsync()) ([Windows.Graphics.Imaging.SoftwareBitmap])
+$engine  = [Windows.Media.Ocr.OcrEngine]::TryCreateFromUserProfileLanguages()
+$result  = Await ($engine.RecognizeAsync($bitmap)) ([Windows.Media.Ocr.OcrResult])
+Write-Output $result.Text
+`
+
+func RecognizeImageAndCopyToClipboard(base64str string) error {
+	if idx := strings.Index(base64str, ","); idx != -1 {
+		base64str = base64str[idx+1:]
+	}
+
+	data, err := base64.StdEncoding.DecodeString(base64str)
+	if err != nil {
+		return fmt.Errorf("base64 decode failed: %w", err)
+	}
+
+	tmp, err := os.CreateTemp("", "ocr-*.png")
+	if err != nil {
+		return fmt.Errorf("create temp file failed: %w", err)
+	}
+	imgPath := tmp.Name()
+	tmp.Write(data)
+	tmp.Close()
+	defer os.Remove(imgPath)
+
+	imgPath = strings.ReplaceAll(imgPath, "/", `\`)
+	script := strings.ReplaceAll(ocrScript, "{{IMAGE_PATH}}", imgPath)
+
+	cmd := exec.Command("powershell",
+		"-NoProfile",
+		"-NonInteractive",
+		"-ExecutionPolicy", "Bypass",
+		"-Command", script,
+	)
+	var stdout, stderr bytes.Buffer
+	cmd.Stdout = &stdout
+	cmd.Stderr = &stderr
+
+	if err = cmd.Run(); err != nil {
+		return fmt.Errorf("powershell error: %w\nstderr: %s", err, stderr.String())
+	}
+
+	text := strings.TrimSpace(stdout.String())
+	if text == "" {
+		return errors.New("OCR returned empty string")
+	}
+
+	return nil
 }

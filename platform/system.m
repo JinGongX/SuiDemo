@@ -82,4 +82,61 @@ void HideDockIcon(void) {
     NSApplication *app = [NSApplication sharedApplication];
     [app setActivationPolicy:NSApplicationActivationPolicyProhibited];
 }
- 
+
+
+// ============ OCR功能 ============
+const char* VisionOCR(const char* path) {
+    @autoreleasepool {
+        NSString* imagePath = [NSString stringWithUTF8String:path];
+        NSData* imageData = [NSData dataWithContentsOfFile:imagePath];
+        NSImage* image = [[NSImage alloc] initWithData:imageData];
+        if (!image) return "Image load failed";
+
+        CGImageRef cgRef = [image CGImageForProposedRect:NULL context:nil hints:nil];
+        if (!cgRef) return "CGImage conversion failed";
+
+        VNRecognizeTextRequest *request = [[VNRecognizeTextRequest alloc] init];
+        request.recognitionLevel = VNRequestTextRecognitionLevelAccurate;
+
+        VNImageRequestHandler *handler = [[VNImageRequestHandler alloc] initWithCGImage:cgRef options:@{}];
+        NSError *error = nil;
+        [handler performRequests:@[request] error:&error];
+
+        if (error) return [[error.localizedDescription UTF8String] copy];
+
+        NSMutableString *result = [NSMutableString string];
+        for (VNRecognizedTextObservation *obs in request.results) {
+            VNRecognizedText *topCandidate = [[obs topCandidates:1] firstObject];
+            if (topCandidate) {
+                [result appendString:topCandidate.string];
+                [result appendString:@"\n"];
+            }
+        }
+
+        return strdup([result UTF8String]);
+    }
+}
+
+const char *VisionOCRFromMemory(const void *data, int size) {
+    @autoreleasepool {
+        NSData *imageData = [NSData dataWithBytes:data length:size];
+        NSImage *image = [[NSImage alloc] initWithData:imageData];
+        CGImageRef cgRef = [image CGImageForProposedRect:nil context:nil hints:nil];
+        VNRecognizeTextRequest *req = [[VNRecognizeTextRequest alloc] init];
+        req.recognitionLevel = VNRequestTextRecognitionLevelAccurate;
+        req.recognitionLanguages = @[@"zh-Hans", @"en-US"];
+        VNImageRequestHandler *handler = [[VNImageRequestHandler alloc] initWithCGImage:cgRef options:@{}];
+        NSError *err = nil;
+        [handler performRequests:@[req] error:&err];
+        if (err) return strdup([[err localizedDescription] UTF8String]);
+        NSMutableString *out = [NSMutableString string];
+        for (VNRecognizedTextObservation *obs in req.results) {
+            VNRecognizedText *cand = [[obs topCandidates:1] firstObject];
+            if (cand) {
+                [out appendString:cand.string];
+                [out appendString:@"\n"];
+            }
+        }
+        return strdup([out UTF8String]);
+    }
+}

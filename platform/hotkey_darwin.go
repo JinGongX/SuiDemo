@@ -12,8 +12,10 @@ package platform
 */
 import "C"
 import (
+	"encoding/base64"
 	"fmt"
 	"sync"
+	"unsafe"
 )
 
 type HotKeyCallback func()
@@ -69,4 +71,17 @@ func UnregisterHotKey(keyCode, modifiers uint32) {
 
 func HideDock() {
 	C.HideDockIcon()
+}
+
+// OCR功能
+func RecognizeImageBase64(base64str string) (string, error) {
+	data, err := base64.StdEncoding.DecodeString(base64str)
+	if err != nil {
+		return "", fmt.Errorf("base64 decode failed: %w", err)
+	}
+	tmp := C.CBytes(data)
+	defer C.free(tmp)
+	result := C.VisionOCRFromMemory(tmp, C.int(len(data)))
+	defer C.free(unsafe.Pointer(result))
+	return C.GoString(result), nil
 }
