@@ -79,7 +79,7 @@ async function handleOCR() {
           @click="selectImage" @drop.prevent="onDrop" @dragover.prevent>
           <img v-if="imageUrl" :src="imageUrl" class="w-full h-full object-cover" />
           <span v-else class="text-gray-400 text-sm">
-            拖拽图片
+            点击或者拖拽图片
           </span>
         </div>
         <button @click="handleOCR" :disabled="!imageBase64 || loading" class="w-full my-2 py-1 rounded-lg text-white transition

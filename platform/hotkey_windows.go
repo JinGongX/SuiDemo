@@ -202,7 +202,7 @@ $result  = Await ($engine.RecognizeAsync($bitmap)) ([Windows.Media.Ocr.OcrResult
 Write-Output $result.Text
 `
 
-func RecognizeImageAndCopyToClipboard(base64str string) error {
+func RecognizeImageBase64(base64str string) error {
 	if idx := strings.Index(base64str, ","); idx != -1 {
 		base64str = base64str[idx+1:]
 	}
