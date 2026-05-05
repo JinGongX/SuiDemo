@@ -202,19 +202,19 @@ $result  = Await ($engine.RecognizeAsync($bitmap)) ([Windows.Media.Ocr.OcrResult
 Write-Output $result.Text
 `
 
-func RecognizeImageBase64(base64str string) error {
+func RecognizeImageBase64(base64str string) (string, error) {
 	if idx := strings.Index(base64str, ","); idx != -1 {
 		base64str = base64str[idx+1:]
 	}
 
 	data, err := base64.StdEncoding.DecodeString(base64str)
 	if err != nil {
-		return fmt.Errorf("base64 decode failed: %w", err)
+		return "", fmt.Errorf("base64 decode failed: %w", err)
 	}
 
 	tmp, err := os.CreateTemp("", "ocr-*.png")
 	if err != nil {
-		return fmt.Errorf("create temp file failed: %w", err)
+		return "", fmt.Errorf("create temp file failed: %w", err)
 	}
 	imgPath := tmp.Name()
 	tmp.Write(data)
@@ -235,13 +235,13 @@ func RecognizeImageBase64(base64str string) error {
 	cmd.Stderr = &stderr
 
 	if err = cmd.Run(); err != nil {
-		return fmt.Errorf("powershell error: %w\nstderr: %s", err, stderr.String())
+		return "", fmt.Errorf("powershell error: %w\nstderr: %s", err, stderr.String())
 	}
 
 	text := strings.TrimSpace(stdout.String())
 	if text == "" {
-		return errors.New("OCR returned empty string")
+		return "", errors.New("OCR returned empty string")
 	}
 
-	return nil
+	return text, nil
 }
