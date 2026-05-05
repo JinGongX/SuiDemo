@@ -23,6 +23,7 @@
 - 🌗 黑暗 / 明亮主题切换
 - 🗂️ SQLite 数据库读写示例（增删改查）
 - ⌨️ 快捷热键支持（支持后续扩展与自定义）
+- 🧠 OCR 图像识别能力（支持图片文字提取）
 - 🧱 可扩展的前后端架构，适合二次开发
 - 🚀 ```wails3 init -n "Your Project Name" -t https://github.com/JinGongX/SuiDemo``` 直接创建项目
 ---
@@ -123,6 +124,7 @@ MIT License
 - ⌨️ Keyboard shortcut (hotkey) support for efficient interaction and easy extension
 - ⚙️ Settings panel and hotkey configuration demo
 - 💡 Built with Wails v3, Vue 3, and TypeScript
+- 🧠 OCR support for extracting text from images
 - 🚀 ```wails3 init -n "Your Project Name" -t https://github.com/JinGongX/SuiDemo``` Create a project
 ---
 
