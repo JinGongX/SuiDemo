@@ -90,6 +90,10 @@ MIT License
   <img src="effect/zh/dashboard_black_zh.png" width="340" />
 </p>
 <p align="center">
+  <img src="effect/zh/tags_zh.png" width="340" />
+  <img src="effect/zh/tags_black_zh.png" width="340" />
+</p>
+<p align="center">
   <img src="effect/zh/settings_zh.png" width="340" />
   <img src="effect/zh/settings_black_zh.png" width="340" />
 </p>
@@ -171,6 +175,10 @@ SuiDemo/
 <p align="center">
   <img src="effect/en/Dashboard_en.png" width="340" />
   <img src="effect/en/dashboard_black_not_en.png" width="340" />
+</p>
+<p align="center">
+  <img src="effect/en/tags_en.png" width="340" />
+  <img src="effect/en/tags_black_en.png" width="340" />
 </p>
 <p align="center">
   <img src="effect/en/settings_en.png" width="340" />
