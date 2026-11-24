@@ -9,7 +9,7 @@
     <img alt="License" src="https://img.shields.io/badge/license-MIT-blue.svg"/>
   </a>
   <a href="https://github.com/JinGongX/SuiDemo/releases">
-    <img alt="Version" src="https://img.shields.io/badge/version-v0.7.0-orange.svg"/>
+    <img alt="Version" src="https://img.shields.io/badge/version-v1.0.0-orange.svg"/>
   </a>
   <a href="https://github.com/wailsapp/wails/tags" rel="nofollow">
     <img alt="Wails v3" src="https://img.shields.io/github/v/tag/wailsapp/wails?include_prereleases&label=wails3&logo=wails"/>
