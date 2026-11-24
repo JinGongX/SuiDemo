@@ -4,14 +4,16 @@
 import * as AppConfigService from "./appconfigservice.js";
 import * as AppService from "./appservice.js";
 import * as HotkeyService from "./hotkeyservice.js";
+import * as OCRService from "./ocrservice.js";
 import * as SystemInfo from "./systeminfo.js";
 export {
     AppConfigService,
     AppService,
     HotkeyService,
+    OCRService,
     SystemInfo
 };
 
-export {
+export type {
     SuiStore
 } from "./models.js";

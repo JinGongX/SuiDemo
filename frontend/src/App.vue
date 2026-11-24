@@ -23,17 +23,14 @@ onMounted(() => {
   </ConfigProvider>
 </template>
 
-<style scoped>
-html, body {
+<style>
+html,
+body {
   margin: 0;
-  overflow-x: hidden; /* 禁止横向滚动 */
+  overflow-x: hidden;
 }
-/* 可选：全局背景适配 */
+
 body {
   @apply bg-white dark:bg-gray-900 text-black dark:text-white;
-}
-.drag-region {
-  -webkit-app-region: drag;
-  --wails-draggable: drag;
 }
 </style>

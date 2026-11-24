@@ -3,16 +3,14 @@
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
-import { Call as $Call, CancellablePromise as $CancellablePromise, Create as $Create } from "@wailsio/runtime";
+import { Call as $Call, CancellablePromise as $CancellablePromise } from "@wailsio/runtime";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
 import * as models$0 from "../models/models.js";
 
-export function GetHotkeys(): $CancellablePromise<models$0.Hotkey[]> {
-    return $Call.ByID(2356466554).then(($result: any) => {
-        return $$createType1($result);
-    });
+export function GetHotkeys(): $CancellablePromise<models$0.Hotkey[] | null> {
+    return $Call.ByID(2356466554);
 }
 
 /**
@@ -21,7 +19,3 @@ export function GetHotkeys(): $CancellablePromise<models$0.Hotkey[]> {
 export function UpHotkey(id: number, key: number, modifier: number): $CancellablePromise<void> {
     return $Call.ByID(3574851818, id, key, modifier);
 }
-
-// Private type creation functions
-const $$createType0 = models$0.Hotkey.createFrom;
-const $$createType1 = $Create.Array($$createType0);

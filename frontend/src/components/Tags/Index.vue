@@ -7,15 +7,17 @@
           {{ $t('components.tags.title.manage_tags') }}
         </h2>
         <button @click="createNew"
-          class="w-[100px] float-right mb-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm px-2 py-2 rounded-xl flex items-center gap-2 font-medium transition-colors shadow-sm">
+          class="w-[100px] float-right mb-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm px-2  rounded-xl flex items-center gap-2 font-medium transition-colors shadow-sm">
           <span class="text-xl pb-1">+</span> {{ $t('components.tags.buttons.newtag') }}
         </button>
       </div>
       <!-- Search -->
       <div class="relative w-full pr-2">
-        <FilterOutlined class="absolute pl-1 top-[15px] -translate-y-1/2 text-gray-400 pointer-events-none" />
-        <input v-model="keyword"  placeholder="Search Tag..."
-          class="w-full h-[30px] outline-none mb-2 pl-6 pr-3 py-1 border rounded-lg text-sm dark:bg-gray-900 dark:text-white dark:border-slate-500" />
+        <FilterOutlined class="absolute left-0 top-[15px] -translate-y-1/2 pl-1 text-gray-400 pointer-events-none" />
+        <input v-model="keyword" placeholder="Search Tag..." class="w-full h-[30px] outline-none mb-2 pl-6 pr-3 py-1
+           border border-slate-200 rounded-lg text-sm
+           bg-white text-slate-700 placeholder:text-slate-400
+           dark:bg-gray-900 dark:text-white dark:border-slate-500 dark:placeholder:text-slate-500" />
       </div>
       <!-- List -->
       <div class="flex-1 overflow-auto space-y-1  scrollbar-thin">
@@ -50,14 +52,17 @@
           </div>
           <div class="pb-3  itmes-left">
             <input v-model="currentTag.name"
-              class="text-sm  w-[80%] font-semibold  outline-none dark:bg-gray-800 dark:text-white "
+              class="text-sm w-[80%] font-semibold outline-none
+           bg-transparent text-slate-800 placeholder:text-slate-400
+           dark:bg-gray-800 dark:text-white dark:placeholder:text-gray-400"
               placeholder="Tag Title" />
           </div>
         </div>
         <div class="px-4">
           <div class="mb-4">
             <div class="flex justify-between items-center mb-3">
-              <div class="text-xs text-gray-500 dark:text-gray-400 tracking-wider">{{ $t('components.tags.label.tagicon') }}</div>
+              <div class="text-xs text-gray-500 dark:text-gray-400 tracking-wider">{{
+                $t('components.tags.label.tagicon') }}</div>
               <!-- 当前预览 -->
               <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
                 <span>{{ $t('components.tags.label.current_preview') }}:</span>
@@ -108,8 +113,9 @@
         <!-- TAG 子标签 -->
         <div class="px-4">
           <div class="mb-2">
-            <span class="text-xs text-left  text-gray-500 dark:text-gray-400">{{ $t('components.tags.label.subtags') }}</span>
-          </div> 
+            <span class="text-xs text-left  text-gray-500 dark:text-gray-400">{{ $t('components.tags.label.subtags')
+              }}</span>
+          </div>
           <div class="flex gap-2 mb-3">
             <input v-model="newSubTag" @keyup.enter="addSubTag"
               class="flex-1 h-[30px] bg-gray-100 rounded-lg px-3 py-2 outline-none text-sm  dark:bg-gray-900 dark:text-white"
@@ -150,8 +156,8 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, createVNode } from 'vue'
 import { i18n } from '../../utils/i18n'
-import { CheckCircleOutlined, DeleteOutlined, UploadOutlined, ExclamationCircleOutlined, FilterOutlined} from '@ant-design/icons-vue'
- import { message, Modal } from 'ant-design-vue';
+import { CheckCircleOutlined, DeleteOutlined, UploadOutlined, ExclamationCircleOutlined, FilterOutlined } from '@ant-design/icons-vue'
+import { message, Modal } from 'ant-design-vue';
 
 const keyword = ref('')
 //const tags = ref<{id:number, name:string, color:string}[]>([])
@@ -210,7 +216,7 @@ const Tags = ref<Tag[]>([
     is_default: 0,
     sort: 4
   }
-]) 
+])
 const filteredTags = computed(() => {
   return Tags.value.filter(t => t.name.toLowerCase().includes(keyword.value.toLowerCase()))
 })
@@ -237,16 +243,16 @@ function editTag(tag) {
   tag.icon = customIcon.value || selectedIconComponent.value || '/visual/default.png'
   if (tag.id == 0) {
     tag.Lang = i18n.global.locale.value
-    tag.tag_key = tag.name.toLowerCase().replace(/\s+/g, '-') 
+    tag.tag_key = tag.name.toLowerCase().replace(/\s+/g, '-')
     tag.id = Date.now() + Math.random()
     Tags.value.unshift(tag)
-    currentTag.value = null 
+    currentTag.value = null
   } else {
-      const index = Tags.value.findIndex(t => t.id === tag.id)
-      if (index !== -1) {
-        Tags.value[index] = tag
-      }
-      currentTag.value = null
+    const index = Tags.value.findIndex(t => t.id === tag.id)
+    if (index !== -1) {
+      Tags.value[index] = tag
+    }
+    currentTag.value = null
   }
 }
 
@@ -329,7 +335,7 @@ function selectIcon(name: string) {
 // 上传处理
 async function handleUpload(e: Event) {
   console.log('上传事件:')
-} 
+}
 
 // 子标签
 const newSubTag = ref('')
@@ -338,7 +344,7 @@ function addSubTag() {
   const val = newSubTag.value.trim()
   if (!val) return
   if (currentTag.value?.keywords.includes(val)) return
-  currentTag.value?.keywords.push(val) 
+  currentTag.value?.keywords.push(val)
   newSubTag.value = ''
 }
 // 删除

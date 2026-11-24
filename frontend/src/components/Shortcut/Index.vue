@@ -3,10 +3,10 @@ import { ref,watch ,onMounted,nextTick} from 'vue'
 import ListItem from '../Setting/ListRow.vue' 
 import ShortcutInput from '../Setting/ShortcutInput.vue';
 import WinShortcutInput from '../Setting/WinShortcutInput.vue';
-import { parseShortcutToHotkeyWin,parseShortcutToHotkey,formatHotkeyStringmac ,formatHotkeyStringWin} from '../../utils/hotkeyUtils'; // 🔁 引入工具函数
+import { parseShortcutToHotkeyWin,parseShortcutToHotkey,formatHotkeyStringmac ,formatHotkeyStringWin} from '../../utils/hotkeyUtils.js'; // 🔁 引入工具函数
 
-import { UpHotkey,GetHotkeys} from '../../../bindings/changeme/internal/services/hotkeyService';
-import {  IsmacOS } from '../../utils/osinfo'
+import { UpHotkey,GetHotkeys} from '../../../bindings/changeme/internal/services/hotkeyservice.js';
+import {  IsmacOS } from '../../utils/osinfo.js'
 import { message } from 'ant-design-vue';
 const ismacos=ref(false)
 // const modelValue = ref(false)
@@ -89,7 +89,7 @@ interface HotkeyItem {
 const hotkeyentry = ref<HotkeyItem[]>([]);
 
 const Gethotkey = async () => {
-  hotkeyentry.value = await GetHotkeys(); 
+  hotkeyentry.value = (await GetHotkeys()) ?? []; 
   if (hotkeyentry.value && hotkeyentry.value.length > 0) { 
     if(ismacos.value){
        OpenShortcut.value = formatHotkeyStringmac(hotkeyentry.value[0].keycode, hotkeyentry.value[0].modifiers);

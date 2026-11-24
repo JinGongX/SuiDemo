@@ -3,7 +3,7 @@
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
-import { Call as $Call, CancellablePromise as $CancellablePromise, Create as $Create } from "@wailsio/runtime";
+import { Call as $Call, CancellablePromise as $CancellablePromise } from "@wailsio/runtime";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
@@ -15,6 +15,13 @@ import * as application$0 from "../../../github.com/wailsapp/wails/v3/pkg/applic
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
 import * as $models from "./models.js";
+
+/**
+ * CheckForUpdates checks for updates using the application's updater and installs them if available.
+ */
+export function CheckForUpdates(): $CancellablePromise<void> {
+    return $Call.ByID(4136979559);
+}
 
 export function OpenSecondWindow(): $CancellablePromise<void> {
     return $Call.ByID(1968391568);

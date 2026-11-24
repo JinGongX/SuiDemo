@@ -2,6 +2,7 @@
   "appmenus":{
     "second": "第二窗口",
     "version": "版本: 0.3.0",
+    "update": "檢查更新",
     "quit": "退出應用",
     "preferences": "偏好設定"
   },
@@ -29,7 +30,7 @@
       },
       "label": {
         "assistant_access": "輔助功能訪問權限",
-        "automatic_up": "自動檢查更新",
+        "check_update": "檢查更新",
         "disk_access": "完全磁盤訪問權限",
         "language": "界面語言",
         "next_up": "下次啟動自動檢查更新",

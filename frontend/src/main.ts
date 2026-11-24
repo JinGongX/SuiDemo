@@ -3,10 +3,10 @@ import Antd from 'ant-design-vue';//add
 import App from './App.vue'
 import './style.css' 
 import 'ant-design-vue/dist/reset.css';
-import {i18n,setupI18n } from './utils/i18n'
-import { initTheme } from './utils/ThemeManager'//add
+import {i18n,setupI18n } from './utils/i18n.js'
+import { initTheme } from './utils/ThemeManager.js'//add
 import router from './router/index'
-import {GetLanguage} from  '../bindings/changeme/internal/services/appconfigservice'
+import {GetLanguage} from  '../bindings/changeme/internal/services/appconfigservice.js'
 
 initTheme()
 if (window.location.hash === '' || window.location.hash === '#/') {

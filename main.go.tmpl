@@ -7,6 +7,8 @@ import (
 	"log"
 
 	"github.com/wailsapp/wails/v3/pkg/application"
+	"github.com/wailsapp/wails/v3/pkg/updater"
+	"github.com/wailsapp/wails/v3/pkg/updater/providers/github"
 )
 
 // Wails uses Go's `embed` package to embed the frontend files into the binary.
@@ -19,6 +21,12 @@ var assets embed.FS
 
 //go:embed frontend/src/locales/*.json
 var I18nFS embed.FS
+
+// Constants for the current version of the application and the GitHub repository used for updates.
+const (
+	currentVersion   = "1.0.0"
+	githubRepository = "GitHub/repository"
+)
 
 // main function serves as the application's entry point. It initializes the application, creates a window,
 // and starts a goroutine that emits a time-based event every second. It subsequently runs the application and
@@ -54,6 +62,26 @@ func main() {
 			ApplicationShouldTerminateAfterLastWindowClosed: true,
 		},
 	})
+
+	// 初始化 GitHub 更新源
+	//githubToken := os.Getenv("GITHUB_TOKEN")
+	gh, err := github.New(github.Config{
+		Repository: githubRepository,
+		//Token:         githubToken,
+		ChecksumAsset: "SHA256SUMS",
+	})
+	if err != nil {
+		log.Fatalf("initialize GitHub provider: %v", err)
+	}
+
+	// 初始化 Updater
+	err = app.Updater.Init(updater.Config{
+		CurrentVersion: currentVersion,
+		Providers:      []updater.Provider{gh},
+	})
+	if err != nil {
+		log.Fatalf("initialize updater: %v", err)
+	}
 
 	appservice.SetApp(app, I18nFS, suidb)
 	// Register hotkeys from the database and associate them with the second window.

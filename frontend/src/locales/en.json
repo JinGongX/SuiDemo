@@ -6,6 +6,7 @@
   "appmenus": {
     "second": "Second win",
     "version": "Version: 0.3.0",
+    "update": "Check for Updates",
     "quit": "Quit",
     "preferences": "Settings"
   },
@@ -29,7 +30,7 @@
       },
       "label": {
         "assistant_access": "Accessibility permissions",
-        "automatic_up": "Automatically check for updates",
+        "check_update": "Check for updates",
         "disk_access": "Full disk access",
         "language": "Interface language",
         "next_up": "Automatically check for updates next time",

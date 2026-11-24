@@ -1,86 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/wails.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/style.css" />
-    <title>Wails + Vue + TS</title>
-    <style>
-    html, body {
-        margin: 0;
-        overflow: hidden; /* 禁止横向滚动 */
-      } 
-html, body, #app {
-  background: transparent !important;
-}
-/* 仅当 html 有 dark 类时生效 */
 
-/* Select 输入框 */
-html.dark .ant-select-selector {
-  color: #ffffff !important;
-  /* background-color: #1f1f1f !important; */
-  background-color: rgba(31, 41, 55, 1) !important;
-  /* background-color: rgb(30 41 59 / var(--tw-bg-opacity, 1)); */
-  border-color: #434343 !important;
-}
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/wails.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/style.css" />
+  <title>Wails + Vue + TS</title>
+  <style>
+    /* 全局盒模型 */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
 
-/* Select 下拉面板 */
-html.dark .ant-select-dropdown {
-  /* background-color: #141414 !important; */
-  background-color: rgba(31, 41, 55, 1) !important;
-}
+    /* 页面根节点 */
+    html,
+    body,
+    #app {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: transparent !important;
+    }
 
-/* 下拉项文字 */
-html.dark .ant-select-item {
-  color: #ffffff !important;
-}
+    body {
+      min-height: 0;
+    }
 
-/* Hover / Active 状态 */
-html.dark .ant-select-item-option-active {
-  /* background-color: #2a2a2a !important; */
-  background-color: rgb(46, 56, 71) !important;
-  /* background-color: rgb(30 41 59 / var(--tw-bg-opacity, 1)); */
-}
+    /* 仅当 html 有 dark 类时生效 */
 
-/* 选中项 */
-html.dark .ant-select-item-option-selected {
-  /* background-color: #3a3a3a !important; */
-  background-color: #283150 !important;
-  /* background-color: rgb(30 41 59 / var(--tw-bg-opacity, 1)) !important; */
-  color: #69c0ff !important;
-}
+    /* Select 输入框 */
+    html.dark .ant-select-selector {
+      color: #ffffff !important;
+      /* background-color: #1f1f1f !important; */
+      background-color: rgba(31, 41, 55, 1) !important;
+      /* background-color: rgb(30 41 59 / var(--tw-bg-opacity, 1)); */
+      border-color: #434343 !important;
+    }
 
-/* Input */
-html.dark .ant-input {
-  background-color: #374151 !important;
-  color: white !important;
-}
+    /* Select 下拉面板 */
+    html.dark .ant-select-dropdown {
+      /* background-color: #141414 !important; */
+      background-color: rgba(31, 41, 55, 1) !important;
+    }
 
-html.dark .ant-input::-moz-placeholder {
-  color: #cccccc !important;
-}
+    /* 下拉项文字 */
+    html.dark .ant-select-item {
+      color: #ffffff !important;
+    }
 
-html.dark .ant-input::placeholder {
-  color: #cccccc !important;
-}
+    /* Hover / Active 状态 */
+    html.dark .ant-select-item-option-active {
+      /* background-color: #2a2a2a !important; */
+      background-color: rgb(46, 56, 71) !important;
+      /* background-color: rgb(30 41 59 / var(--tw-bg-opacity, 1)); */
+    }
 
-/* Input 带前后缀 */
-html.dark .ant-input-affix-wrapper {
-  background-color: #374151 !important;
-  border-color: #626161 !important;
-}
-  #app {
-       margin: 0;
-       padding: 0;
-       width: 100%;
-       height: 100%;
-      }
-    </style>
-    <script type="module" crossorigin src="/assets/index-BLswuXOX.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DGiRY2aU.css">
-  </head>
-  <body>
-    <div id="app"></div>
-  </body>
+    /* 选中项 */
+    html.dark .ant-select-item-option-selected {
+      /* background-color: #3a3a3a !important; */
+      background-color: #283150 !important;
+      /* background-color: rgb(30 41 59 / var(--tw-bg-opacity, 1)) !important; */
+      color: #69c0ff !important;
+    }
+
+    /* Input */
+    html.dark .ant-input {
+      background-color: #374151 !important;
+      color: white !important;
+    }
+
+    html.dark .ant-input::-moz-placeholder {
+      color: #cccccc !important;
+    }
+
+    html.dark .ant-input::placeholder {
+      color: #cccccc !important;
+    }
+
+    /* Input 带前后缀 */
+    html.dark .ant-input-affix-wrapper {
+      background-color: #374151 !important;
+      border-color: #626161 !important;
+    } 
+  </style>
+  <script type="module" crossorigin src="/assets/index-BHPPVinP.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CwhKsdHN.css">
+</head>
+
+<body>
+  <div id="app"></div>
+</body>
+
 </html>

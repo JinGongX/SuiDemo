@@ -2,6 +2,7 @@ package services
 
 import (
 	"changeme/internal/models"
+	"context"
 	"embed"
 	"encoding/json"
 	"fmt"
@@ -26,6 +27,7 @@ type AppService struct {
 	MenuSetting   *application.MenuItem
 	MenuSecondBar *application.MenuItem
 	MenuVersion   *application.MenuItem
+	MenuUpdate    *application.MenuItem
 }
 
 var HotkeyShowSecondWindow = 1 // 显示第二个窗口的快捷键ID
@@ -154,6 +156,15 @@ func LoadAppMenu(a *AppService, langvalue string) {
 	item := a.Menu.Add(lang.AppMenu.Version)
 	item.SetEnabled(false)
 	a.MenuVersion = item
+	// 检查更新
+	a.Menu.AddSeparator()
+	a.MenuUpdate = a.Menu.Add(lang.AppMenu.Update).OnClick(func(ctx *application.Context) {
+		go func() {
+			if err := a.CheckForUpdates(); err != nil {
+				a.App.Logger.Error("update flow", "error", err)
+			}
+		}()
+	})
 	a.Menu.AddSeparator()
 	a.MenuQuit = a.Menu.Add(lang.AppMenu.Quit).OnClick(func(ctx *application.Context) {
 		a.App.Quit()
@@ -170,6 +181,7 @@ func UpdateAppMenu(a *AppService, langvalue string) {
 	a.MenuSecondBar.SetLabel(lang.AppMenu.Second)
 	a.MenuSetting.SetLabel(lang.AppMenu.Preferences)
 	a.MenuVersion.SetLabel(lang.AppMenu.Version)
+	a.MenuUpdate.SetLabel(lang.AppMenu.Update)
 	a.MenuQuit.SetLabel(lang.AppMenu.Quit)
 	//a.Tray.SetMenu(menu)
 	if runtime.GOOS == "darwin" {
@@ -188,4 +200,9 @@ func (s *AppService) SetLanguage(lang string) error {
 	// 2 更新菜单
 	UpdateAppMenu(s, lang) // 更新菜单语言
 	return s.Config.SetLanguage(lang)
+}
+
+// CheckForUpdates checks for updates using the application's updater and installs them if available.
+func (a *AppService) CheckForUpdates() error {
+	return a.App.Updater.CheckAndInstall(context.Background())
 }

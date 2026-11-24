@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-screen  font-sans text-slate-900">
+  <div class="flex no-drag h-screen  font-sans text-slate-900">
     <!-- 左侧请求栏 -->
     <aside
       class="w-44 border-r border-slate-200  bg-white flex flex-col dark:bg-gray-800 dark:text-white dark:border-slate-600"
@@ -144,7 +144,9 @@ body {
   -webkit-app-region: drag;
   --wails-draggable: drag;
 }
-
+.no-drag {
+    --wails-draggable: no-drag;
+}
 .titlebar {
   height: 40px;
   display: flex;

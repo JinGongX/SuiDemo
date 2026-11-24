@@ -10,4 +10,5 @@ type Appmenus struct {
 	Preferences string `json:"preferences"`
 	Second      string `json:"second"`
 	Version     string `json:"version"`
+	Update      string `json:"update"`
 }

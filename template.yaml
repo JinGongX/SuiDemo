@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=https://v3.wails.io/schemas/template.v3.json
+name: SuiDemo
+shortname: ""
+author: ""
+description: "A Wails v3-based desktop application template with i18n, dark mode, and SQLite integration."
+helpurl: ""
+version: v1.0.0
+wailsVersion: 3
+typescript: false
