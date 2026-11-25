@@ -1,9 +1,0 @@
-{
-  "name": "SuiDemo",
-  "shortname": "",
-  "author": "",
-  "description": "A Wails v3-based desktop application template with i18n, dark mode, and SQLite integration.",
-  "helpurl": "",
-  "version": "v1.0.0",
-  "schema": 3
-}
